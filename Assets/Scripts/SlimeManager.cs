@@ -6,14 +6,22 @@ using UnityEngine;
 public class SlimeManager : MonoBehaviour
 {
     [SerializeField] private float slimeDeathMaxTimer = 5f;
-    private float slimeDeathTimeLeft;
+    [SerializeField] private float slimeDeathTimeLeft;
+
+    [SerializeField] private float slimeManualStopTimer = 1f;
+    [SerializeField] private float slimeManualStopTimeLeft;
     private bool slimeStopMoving = false;
     private Vector3 normalScale;
+    private SlimeMovement SlimeMovement;
+    private Rigidbody rb;
 
     void Start()
     {
         normalScale = transform.localScale;
         slimeDeathTimeLeft = slimeDeathMaxTimer;
+        slimeManualStopTimeLeft = slimeManualStopTimer;
+        SlimeMovement = GetComponent<SlimeMovement>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -21,6 +29,20 @@ public class SlimeManager : MonoBehaviour
         if (slimeDeathTimeLeft >= 0)
         {
             slimeDeathTimeLeft -= Time.deltaTime;
+
+            if(rb.velocity.magnitude < 0.1)
+            {
+                slimeManualStopTimeLeft -= Time.deltaTime;
+                if(slimeManualStopTimeLeft <= 0)
+                {
+                    slimeDeathTimeLeft = 0;
+                }
+            }
+            else
+            {
+                slimeManualStopTimeLeft = slimeManualStopTimer;
+            }
+            /*
             normalScale.y += Time.deltaTime;
             if (normalScale.y <= slimeDeathMaxTimer)
             {
@@ -30,12 +52,14 @@ public class SlimeManager : MonoBehaviour
             {
                 normalScale.y = slimeDeathMaxTimer;
             }
+            */
         }
         else
         {
             slimeStopMoving = true;
-            //Debug.Log("Ability will go here");
-            enabled = false;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
+            //SlimeMovement.enabled = false;
+            //enabled = false;
         }
 
     }
