@@ -26,22 +26,28 @@ public class SlimeManager : MonoBehaviour
 
     void Update()
     {
-        if (slimeDeathTimeLeft >= 0)
+        if (slimeDeathTimeLeft > 0)
         {
             slimeDeathTimeLeft -= Time.deltaTime;
 
             if(rb.velocity.magnitude < 0.1)
             {
-                slimeManualStopTimeLeft -= Time.deltaTime;
+                if(slimeManualStopTimeLeft > 0)
+                {
+                    slimeManualStopTimeLeft -= Time.deltaTime;
+                }
+
                 if(slimeManualStopTimeLeft <= 0)
                 {
                     slimeDeathTimeLeft = 0;
+                    Debug.Log("Already Dead");
                 }
             }
             else
             {
                 slimeManualStopTimeLeft = slimeManualStopTimer;
             }
+
             /*
             normalScale.y += Time.deltaTime;
             if (normalScale.y <= slimeDeathMaxTimer)
@@ -57,7 +63,9 @@ public class SlimeManager : MonoBehaviour
         else
         {
             slimeStopMoving = true;
+            SlimeMovement.enabled = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
+            
             //SlimeMovement.enabled = false;
             //enabled = false;
         }
