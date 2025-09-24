@@ -6,7 +6,9 @@ public class SlimeClimbMovement : MonoBehaviour
 {
     [SerializeField] private float _climbingSpeed = 3f;
     [SerializeField] private float _wallDetectRadius = 1f;
+    [SerializeField] private float _groundDetectOffsetY;
     [SerializeField] private float _groundDetectRadius = 1.5f;
+
     //private bool slimeStopMoving = false;
     //private Vector3 normalScale;
     private PlayerMovement SlimeMovement;
@@ -53,9 +55,11 @@ public class SlimeClimbMovement : MonoBehaviour
     private void WallDetect()
     {
         //Debug.Log(_isClimbing);
+        Vector3 raycastPosition = transform.position;
+        raycastPosition.y += _groundDetectOffsetY;
 
         RaycastHit wallDetectRaycast;
-        if (Physics.Raycast(transform.position, transform.forward, out wallDetectRaycast, _wallDetectRadius))
+        if (Physics.Raycast(raycastPosition, transform.forward, out wallDetectRaycast, _wallDetectRadius))
         {
             _isClimbing = true;
             _groundSurface = wallDetectRaycast.normal;
