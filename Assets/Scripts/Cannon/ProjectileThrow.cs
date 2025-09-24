@@ -7,13 +7,13 @@ public class ProjectileThrow : MonoBehaviour
     TrajectoryPredictor trajectoryPredictor;
 
     [SerializeField]
-    Rigidbody objectToThrow;
+    private Projectile objectToThrow;
 
     [SerializeField, Range(0.0f, 50.0f)]
-    float force;
+    private float force;
 
     [SerializeField]
-    Transform StartPosition;
+    private Transform StartPosition;
 
     public InputAction fire;
 
@@ -54,7 +54,7 @@ public class ProjectileThrow : MonoBehaviour
 
     void ThrowObject(InputAction.CallbackContext ctx)
     {
-        Rigidbody thrownObject = Instantiate(objectToThrow, StartPosition.position, Quaternion.identity);
+        Rigidbody thrownObject = Instantiate(objectToThrow.GetComponent<Rigidbody>(), StartPosition.position, Quaternion.identity);
         thrownObject.AddForce(StartPosition.forward * force, ForceMode.Impulse);
     }
 }
