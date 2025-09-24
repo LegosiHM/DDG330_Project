@@ -11,14 +11,19 @@ public class HumanMovingState : GameState
 
     public override void OnEnter()
     {
+        //attach player component to player
     }
 
     public override void OnExit()
     {
+        //end stage
     }
 
     public override void OnUpdate()
     {
+        //recieve movement input
+        //movement
+
         //Debug only
         if (Input.GetKeyDown(KeyCode.Space))
         {

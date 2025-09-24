@@ -52,7 +52,7 @@ public class SlimeClimbMovement : MonoBehaviour
 
     private void WallDetect()
     {
-        Debug.Log(_isClimbing);
+        //Debug.Log(_isClimbing);
 
         RaycastHit wallDetectRaycast;
         if (Physics.Raycast(transform.position, transform.forward, out wallDetectRaycast, _wallDetectRadius))

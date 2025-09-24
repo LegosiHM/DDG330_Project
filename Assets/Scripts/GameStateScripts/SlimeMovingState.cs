@@ -11,6 +11,7 @@ public class SlimeMovingState : GameState
 
     public override void OnEnter()
     {
+        //attach player component to slime
     }
 
     public override void OnExit()
@@ -19,6 +20,9 @@ public class SlimeMovingState : GameState
 
     public override void OnUpdate()
     {
+        //slime movement
+        //exit when slime is dead => shooting state
+
         //Debug only
         if (Input.GetKeyDown(KeyCode.Space))
         {
