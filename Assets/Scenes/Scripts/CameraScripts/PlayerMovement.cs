@@ -7,12 +7,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private Camera _camera;
 
+    [Header("Movement Settings")]
     [SerializeField] private float speed = 6;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float jumpHeight = 3;
     private Vector3 velocity;
     private bool isGrounded;
 
+    [Header("Ground Check")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance = 0.4f;
     [SerializeField] private LayerMask groundMask;
@@ -20,9 +22,15 @@ public class PlayerMovement : MonoBehaviour
     float turnSmoothVelocity;
     [SerializeField] private float turnSmoothTime = 0.1f;
 
+    // Animator 
+    private Animator animator; 
+    private string speedParam = "Speed";
+
     // Update is called once per frame
     public void PlayerMoving()
     {
+        animator = GetComponent<Animator>();
+
         //jump
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         //Debug.Log("IsGrounded:" + isGrounded);
@@ -36,9 +44,11 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
+
         //gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
         //walk
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -53,5 +63,9 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
+
+        float currentSpeed = new Vector3(controller.velocity.x, 0, controller.velocity.z).magnitude; 
+        animator.SetFloat(speedParam, currentSpeed);
+
     }
 }
