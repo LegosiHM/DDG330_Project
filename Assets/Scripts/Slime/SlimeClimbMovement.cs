@@ -11,7 +11,7 @@ public class SlimeClimbMovement : MonoBehaviour
 
     //private bool slimeStopMoving = false;
     //private Vector3 normalScale;
-    private PlayerMovement SlimeMovement;
+    private SlimeMovement SlimeMovement;
     private Rigidbody rb;
 
     private Vector3 _groundSurface;
@@ -25,16 +25,17 @@ public class SlimeClimbMovement : MonoBehaviour
 
     void Start()
     {
-        SlimeMovement = GetComponent<PlayerMovement>();
+        SlimeMovement = GetComponent<SlimeMovement>();
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    public void SlimeClimbing()
     {
         WallDetect();
 
         if (_isClimbing)
         {
+            Debug.Log("isClimbing");
             Climbing();
             if (!_isTouchingGround)
             {

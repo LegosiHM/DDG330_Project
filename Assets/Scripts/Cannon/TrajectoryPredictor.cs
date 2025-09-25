@@ -15,13 +15,12 @@ public class TrajectoryPredictor : MonoBehaviour
     [SerializeField, Range(1.05f, 2f), Tooltip("The raycast overlap between points in the trajectory, this is a multiplier of the length between points. 2 = twice as long")]
     float rayOverlap = 1.1f;
     #endregion
-
-    private void Start()
+    private void Awake()
     {
         if (trajectoryLine == null)
             trajectoryLine = GetComponent<LineRenderer>();
 
-        SetTrajectoryVisible(true);
+        SetTrajectoryVisible(false);
     }
 
     public void PredictTrajectory(ProjectileProperties projectile)

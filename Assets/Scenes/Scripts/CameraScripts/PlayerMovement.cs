@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private CharacterController controller;
-    [SerializeField] private Transform cam;
+    [SerializeField] private Camera _camera;
 
     [SerializeField] private float speed = 6;
     [SerializeField] private float gravity = -9.81f;
     [SerializeField] private float jumpHeight = 3;
-    Vector3 velocity;
-    bool isGrounded;
+    private Vector3 velocity;
+    private bool isGrounded;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance = 0.4f;
@@ -21,12 +21,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float turnSmoothTime = 0.1f;
 
     // Update is called once per frame
-    void Update()
+    public void PlayerMoving()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-
         //jump
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        //Debug.Log("IsGrounded:" + isGrounded);
 
         if (isGrounded && velocity.y < 0)
         {
@@ -47,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (direction.magnitude >= 0.1f)
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + _camera.transform.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 

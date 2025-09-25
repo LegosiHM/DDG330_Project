@@ -168,11 +168,11 @@ GameObject:
   m_Component:
   - component: {fileID: 114383603174637561}
   - component: {fileID: 9054823642922600993}
-  - component: {fileID: 5146171299029046564}
   - component: {fileID: 6044890403820109652}
   - component: {fileID: 1790777953282797509}
   - component: {fileID: 5491534692839598264}
-  m_Layer: 0
+  - component: {fileID: 6678322626712236850}
+  m_Layer: 10
   m_Name: Player (SlimeTestOnly)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -195,6 +195,7 @@ Transform:
   - {fileID: 2906800889304825944}
   - {fileID: 1803624589684098281}
   - {fileID: 8643925819755830571}
+  - {fileID: 7480236798127098750}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &9054823642922600993
@@ -223,29 +224,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5146171299029046564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4614446465639993942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6fbbff65626d6146b80b7fa975b1e76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 9054823642922600993}
-  cam: {fileID: 6771685745574226836}
-  speed: 6
-  gravity: -9.81
-  jumpHeight: 0
-  groundCheck: {fileID: 0}
-  groundDistance: 0.1
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  turnSmoothTime: 0.1
 --- !u!114 &6044890403820109652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,10 +236,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c222af341e67c4aa48828199db8365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimeDeathMaxTimer: 100
-  slimeDeathTimeLeft: 0
-  slimeManualStopTimer: 100
-  slimeManualStopTimeLeft: 0
+  _slimeDeathMaxTimer: 20
+  _slimeDeathTimeLeft: 0
+  _slimeManualStopTimer: 10
+  _slimeManualStopTimeLeft: 0
 --- !u!54 &1790777953282797509
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -306,6 +284,61 @@ MonoBehaviour:
   _groundDetectOffsetY: -1
   _groundDetectRadius: 1.5
   controller: {fileID: 9054823642922600993}
+--- !u!114 &6678322626712236850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614446465639993942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87674b7ba7e0ff4a9c9d578ff294d6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 9054823642922600993}
+  _camera: {fileID: 7575944241821400178}
+  _cinemachine: {fileID: 2404520053139323275}
+  speed: 6
+  gravity: -9.81
+  jumpHeight: 0.5
+  groundCheck: {fileID: 7480236798127098750}
+  groundDistance: 0.1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  turnSmoothTime: 0.1
+--- !u!1 &4660230311341763584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7480236798127098750}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7480236798127098750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4660230311341763584}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.123, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 114383603174637561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5387379559976974174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,7 +1068,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6771685745574226836}
   - component: {fileID: 7575944241821400178}
-  - component: {fileID: 641350552508684782}
   - component: {fileID: 206519662336935180}
   m_Layer: 0
   m_Name: PlayerCam
@@ -1110,14 +1142,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &641350552508684782
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8009833178359472087}
-  m_Enabled: 1
 --- !u!114 &206519662336935180
 MonoBehaviour:
   m_ObjectHideFlags: 0

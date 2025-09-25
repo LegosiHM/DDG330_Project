@@ -47,7 +47,7 @@ public class MouseLook : MonoBehaviour
         return smoothMouse;
     }
 
-    void LateUpdate()
+    public void CannonRotate()
     {
         if (lockCursor)
             Cursor.lockState = CursorLockMode.Locked;
@@ -59,7 +59,7 @@ public class MouseLook : MonoBehaviour
         AlignToBody();
     }
 
-    void ClampValues()
+    private void ClampValues()
     {
         // Clamp and apply the local x value first
         if (clampInDegrees.x < 360)
@@ -75,7 +75,7 @@ public class MouseLook : MonoBehaviour
 
     }
 
-    void AlignToBody()
+    private void AlignToBody()
     {
         var targetCharacterOrientation = Quaternion.Euler(targetCharacterDirection);
         Quaternion yRotation = Quaternion.identity;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 
 public class HumanMovingState : GameState
 {
@@ -10,8 +11,8 @@ public class HumanMovingState : GameState
     }
 
     public override void OnEnter()
-    {
-        //attach player component to player
+    { 
+        _gameManager.EnablePlayerCamera();
     }
 
     public override void OnExit()
@@ -21,14 +22,15 @@ public class HumanMovingState : GameState
 
     public override void OnUpdate()
     {
-        //recieve movement input
-        //movement
+        _gameManager.playerMovement.PlayerMoving();
 
         //Debug only
+        /*
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("change to Shooting State");
             _gameManager.SetState(new ShootingState(_gameManager));
         }
+        */
     }
 }

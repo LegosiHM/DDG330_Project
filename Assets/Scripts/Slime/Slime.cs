@@ -5,14 +5,18 @@ using UnityEngine.InputSystem.XR;
 
 public class Slime : MonoBehaviour
 {
-    [SerializeField] private float slimeDeathMaxTimer = 5f;
-    [SerializeField] private float slimeDeathTimeLeft;
+    [SerializeField] private float _slimeDeathMaxTimer = 5f;
+    [SerializeField] private float _slimeDeathTimeLeft;
+    public float slimeDeathTimeLeft => _slimeDeathTimeLeft;
 
-    [SerializeField] private float slimeManualStopTimer = 1f;
-    [SerializeField] private float slimeManualStopTimeLeft;
+    [SerializeField] private float _slimeManualStopTimer = 1f;
+    [SerializeField] private float _slimeManualStopTimeLeft;
+
+    public float slimeManualStopTimeLeft => _slimeManualStopTimeLeft;
+
     //private bool slimeStopMoving = false;
     //private Vector3 normalScale;
-    private PlayerMovement _SlimeNormalMovement;
+    private SlimeMovement _SlimeNormalMovement;
     private SlimeClimbMovement _SlimeClimbMovement;
     private Rigidbody rb;
 
@@ -20,40 +24,38 @@ public class Slime : MonoBehaviour
     void Start()
     {
         //normalScale = transform.localScale;
-        slimeDeathTimeLeft = slimeDeathMaxTimer;
-        slimeManualStopTimeLeft = slimeManualStopTimer;
-        _SlimeNormalMovement = GetComponent<PlayerMovement>();
+        _slimeDeathTimeLeft = _slimeDeathMaxTimer;
+        _slimeManualStopTimeLeft = _slimeManualStopTimer;
+        _SlimeNormalMovement = GetComponent<SlimeMovement>();
         _SlimeClimbMovement = GetComponent<SlimeClimbMovement>();
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        SlimeDeathCountDown();
     }
 
-    private void SlimeDeathCountDown()
+    public void SlimeDeathCountDown()
     {
-        if (slimeDeathTimeLeft > 0)
+        if (_slimeDeathTimeLeft > 0)
         {
-            slimeDeathTimeLeft -= Time.deltaTime;
+            _slimeDeathTimeLeft -= Time.deltaTime;
 
-            if (rb.velocity.magnitude < 0.1)
+            if (!IsMovementInputPressed())
             {
-                if (slimeManualStopTimeLeft > 0)
+                if (_slimeManualStopTimeLeft > 0)
                 {
-                    slimeManualStopTimeLeft -= Time.deltaTime;
+                    _slimeManualStopTimeLeft -= Time.deltaTime;
                 }
 
-                if (slimeManualStopTimeLeft <= 0)
+                if (_slimeManualStopTimeLeft <= 0)
                 {
-                    slimeDeathTimeLeft = 0;
-                    Debug.Log("Already Dead");
+                    _slimeDeathTimeLeft = 0;
                 }
             }
             else
             {
-                slimeManualStopTimeLeft = slimeManualStopTimer;
+                _slimeManualStopTimeLeft = _slimeManualStopTimer;
             }
 
             /*
@@ -75,9 +77,16 @@ public class Slime : MonoBehaviour
             _SlimeClimbMovement.enabled = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
 
+            Debug.Log("Already Dead");
+
             //SlimeMovement.enabled = false;
             //enabled = false;
         }
 
     }
+    bool IsMovementInputPressed() //check input
+    {
+        return Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0 || Input.GetButton("Jump");
+    }
+
 }
