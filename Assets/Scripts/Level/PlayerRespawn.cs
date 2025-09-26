@@ -5,13 +5,19 @@ using UnityEngine;
 public class PlayerRespaw : MonoBehaviour
 {
     //for debug only
-    [SerializeField] private float yThreshold = -10f;
+    [SerializeField] private float yThreshold = -2f;
     [SerializeField] private Transform respawnPosition;
+    private Animator animator;
 
-    void FixedUpdate()
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+    void Update()
     {
         if (transform.position.y < yThreshold || Input.GetKeyDown(KeyCode.P))
         {
+            animator.enabled = false;
             Respawn();
         }
     }
