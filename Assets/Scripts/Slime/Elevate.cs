@@ -6,6 +6,9 @@ public class Elevate : MonoBehaviour
 {
     [SerializeField] private GameObject _extendBodyPart;
     [SerializeField] private GameObject _slimeHeadPart;
+    [SerializeField] private GameObject _extendCollider;
+    private CharacterController _characterController;
+
     [SerializeField] private float _extendScaleY = 3f;
     [SerializeField] private float _extendScaleSpeed = 0.5f;
 
@@ -15,9 +18,11 @@ public class Elevate : MonoBehaviour
     private Vector3 _originalScale;
     private Vector3 _extendBodyPartScale;
     private Vector3 _extendBodyPartPosition;
+    private Vector3 _extendColliderPosition;
     private Vector3 _extendSlimeHeadPosition;
 
     private Vector3 _originalPosition;
+
 
     void Start()
     {
@@ -27,13 +32,13 @@ public class Elevate : MonoBehaviour
         _originalPosition = _extendBodyPart.transform.localPosition;
         _extendBodyPartPosition = _originalPosition;
 
+        _extendColliderPosition = _extendCollider.transform.localPosition;
+
         _extendSlimeHeadPosition = _slimeHeadPart.transform.localPosition;
+
+        _characterController = GetComponentInParent<CharacterController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -75,11 +80,17 @@ public class Elevate : MonoBehaviour
             _extendBodyPartPosition.y += _extendScaleSpeed / 2 * Time.deltaTime;
             _extendBodyPart.transform.localPosition = _extendBodyPartPosition;
         }
-        if (_slimeHeadPart.transform.localPosition.y < _extendScaleY / 2)
+
+        if (_slimeHeadPart.transform.localPosition.y < _extendScaleY * 1/5)
         {
             _extendSlimeHeadPosition.y += _extendScaleSpeed / 2 * Time.deltaTime;
             _slimeHeadPart.transform.localPosition = _extendSlimeHeadPosition;
         }
 
+        if (_extendCollider.transform.localPosition.y < _extendScaleY / 2)
+        {
+            _extendColliderPosition.y += _extendScaleSpeed / 2 * Time.deltaTime;
+            _extendCollider.transform.localPosition = _extendColliderPosition;
+        }
     }
 }

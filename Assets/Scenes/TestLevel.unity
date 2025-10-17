@@ -10890,8 +10890,8 @@ Transform:
   m_GameObject: {fileID: 136385274}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1, y: 0, z: 4.33}
+  m_LocalScale: {x: 1, y: 1, z: 7.7991}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1787848824}
@@ -49281,8 +49281,8 @@ Transform:
   m_GameObject: {fileID: 548179007}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4, y: 0, z: 4.33}
+  m_LocalScale: {x: 1, y: 1, z: 7.7991}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1787848824}
@@ -71141,8 +71141,8 @@ Transform:
   m_GameObject: {fileID: 782897184}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 0, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3, y: 0, z: 4.33}
+  m_LocalScale: {x: 1, y: 1, z: 7.7991}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1787848824}
@@ -73661,8 +73661,8 @@ Transform:
   m_GameObject: {fileID: 802733243}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4.33}
+  m_LocalScale: {x: 1, y: 1, z: 7.7991}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1787848824}
@@ -73799,8 +73799,8 @@ Transform:
   m_GameObject: {fileID: 804846790}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -2, y: 0, z: 4.33}
+  m_LocalScale: {x: 1, y: 1, z: 7.7991}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1787848824}
@@ -127980,7 +127980,7 @@ PrefabInstance:
       objectReference: {fileID: 1388281954}
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.data[0]
@@ -127989,7 +127989,7 @@ PrefabInstance:
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.data[1]
       value: 
-      objectReference: {fileID: 2994297297018350002, guid: accc561bcbd43d941b31f7b063fd0565, type: 3}
+      objectReference: {fileID: 2994297297018350002, guid: 1edfabb9e5853744ca00d8aae4f6f74c, type: 3}
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.data[2]
       value: 
@@ -128205,8 +128205,8 @@ Transform:
   m_GameObject: {fileID: 1373454451}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5, y: 0, z: 4.33}
+  m_LocalScale: {x: 1, y: 1, z: 7.7991}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1787848824}
@@ -158748,8 +158748,8 @@ Transform:
   m_GameObject: {fileID: 1726899224}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: 0, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -7, y: 0, z: 4.33}
+  m_LocalScale: {x: 1, y: 1, z: 7.7991}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1787848824}
@@ -197912,8 +197912,8 @@ Transform:
   m_GameObject: {fileID: 2107741882}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6, y: 0, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6, y: 0, z: 4.33}
+  m_LocalScale: {x: 1, y: 1, z: 7.7991}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1787848824}
