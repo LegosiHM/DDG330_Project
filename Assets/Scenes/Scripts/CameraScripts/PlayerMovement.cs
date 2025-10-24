@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
     // Animator 
     private Animator animator; 
     private string speedParam = "Speed";
+    private string _strafe = "Strafe";
+
+    private string isJumpingParam = "IsJumping";
+
 
     // Update is called once per frame
     public void PlayerMoving()
@@ -38,12 +42,22 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            animator.SetBool(isJumpingParam, false);
         }
+        
+
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            animator.SetBool(isJumpingParam, true);
+            
         }
+
+        /*if (isGrounded)
+        {
+            animator.SetBool(isJumpingParam, false);
+        }*/
 
         //gravity
         velocity.y += gravity * Time.deltaTime;
@@ -52,7 +66,18 @@ public class PlayerMovement : MonoBehaviour
         //walk
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
+
+     
+
+        //float speed = vertical * moveState;
+        float strafe = horizontal;
+
+        //animator.SetFloat(speedParam, speed, 0.1f, Time.deltaTime);
+        animator.SetFloat(_strafe, strafe, 0.1f, Time.deltaTime);
+
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        animator.SetFloat("VelocityX", horizontal, 0.1f, Time.deltaTime);
+        animator.SetFloat("VelocityY", vertical, 0.1f, Time.deltaTime);
 
         if (direction.magnitude >= 0.1f)
         {
