@@ -92,6 +92,7 @@ public class SlimeClimbMovement : MonoBehaviour
         if (moveDirection.magnitude >= 0.1f)
         {
             //Vector3 moveDir = Quaternion.Euler(0f, direction, 0f) * Vector3.up;
+            //transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
             controller.Move(moveDirection.normalized * _climbingSpeed * Time.deltaTime);
         }
 

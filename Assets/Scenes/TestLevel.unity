@@ -69831,15 +69831,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6771685745574226836, guid: acbca96f93a8e4c49990d42e75ac1923, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1782474
+      value: 0.17824744
       objectReference: {fileID: 0}
     - target: {fileID: 6771685745574226836, guid: acbca96f93a8e4c49990d42e75ac1923, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000005865014
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6771685745574226836, guid: acbca96f93a8e4c49990d42e75ac1923, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000010624378
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9054823642922600993, guid: acbca96f93a8e4c49990d42e75ac1923, type: 3}
       propertyPath: m_Center.y
@@ -105624,6 +105624,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 566e8994512b76544b145de0db1111be, type: 2}
+    - target: {fileID: 2404520053139323275, guid: fcd6612c8af04af4a9ad58cb26421988, type: 3}
+      propertyPath: m_Rigs.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2404520053139323275, guid: fcd6612c8af04af4a9ad58cb26421988, type: 3}
+      propertyPath: m_Rigs.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2404520053139323275, guid: fcd6612c8af04af4a9ad58cb26421988, type: 3}
+      propertyPath: m_Rigs.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2482419578302081729, guid: fcd6612c8af04af4a9ad58cb26421988, type: 3}
       propertyPath: m_ComponentOwner
       value: 
@@ -127980,20 +127992,20 @@ PrefabInstance:
       objectReference: {fileID: 1388281954}
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.data[0]
       value: 
-      objectReference: {fileID: 2994297297018350002, guid: accc561bcbd43d941b31f7b063fd0565, type: 3}
+      objectReference: {fileID: 2994297297018350002, guid: 1232ca6252412bd4083809e59c72d44e, type: 3}
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.data[1]
       value: 
-      objectReference: {fileID: 2994297297018350002, guid: 1edfabb9e5853744ca00d8aae4f6f74c, type: 3}
+      objectReference: {fileID: 2994297297018350002, guid: 4d0f83bc4bfc04749985d282faf7e9bc, type: 3}
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.data[2]
       value: 
-      objectReference: {fileID: 2994297297018350002, guid: accc561bcbd43d941b31f7b063fd0565, type: 3}
+      objectReference: {fileID: 2994297297018350002, guid: 1edfabb9e5853744ca00d8aae4f6f74c, type: 3}
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.data[3]
       value: 

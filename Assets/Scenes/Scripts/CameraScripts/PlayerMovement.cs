@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
 
     private string isJumpingParam = "IsJumping";
 
-
     // Update is called once per frame
     public void PlayerMoving()
     {

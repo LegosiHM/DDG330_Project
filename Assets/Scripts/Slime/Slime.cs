@@ -20,6 +20,12 @@ public class Slime : MonoBehaviour
     private SlimeClimbMovement _SlimeClimbMovement;
     private Rigidbody rb;
 
+    private Vector3 _slimeOriginalPosition;
+    public Vector3 slimeOriginalPosition => _slimeOriginalPosition;
+
+    private bool _isDead = false;
+    public bool isDead => _isDead;
+
     
     void Start()
     {
@@ -57,18 +63,6 @@ public class Slime : MonoBehaviour
             {
                 _slimeManualStopTimeLeft = _slimeManualStopTimer;
             }
-
-            /*
-            normalScale.y += Time.deltaTime;
-            if (normalScale.y <= slimeDeathMaxTimer)
-            {
-                transform.localScale = normalScale;
-            }
-            else
-            {
-                normalScale.y = slimeDeathMaxTimer;
-            }
-            */
         }
         else
         {
@@ -76,8 +70,6 @@ public class Slime : MonoBehaviour
             _SlimeNormalMovement.enabled = false;
             _SlimeClimbMovement.enabled = false;
             rb.constraints = RigidbodyConstraints.FreezeAll;
-
-            Debug.Log("Already Dead");
 
             //SlimeMovement.enabled = false;
             //enabled = false;
@@ -87,6 +79,13 @@ public class Slime : MonoBehaviour
     bool IsMovementInputPressed() //check input
     {
         return Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0 || Input.GetButton("Jump");
+    }
+
+    public void MakeSlimeDead()
+    {
+        _isDead = true;
+        _slimeOriginalPosition = transform.position;
+        Debug.Log("slime is dead");
     }
 
 }

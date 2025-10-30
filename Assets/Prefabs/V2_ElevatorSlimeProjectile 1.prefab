@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7468603855156948306}
   - component: {fileID: 2994297297018350002}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: V2_ElevatorSlimeProjectile 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f0fd89412bc614c8273fa5f9595480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slimeOfThisProjectile: {fileID: 6044890403820109652, guid: bd8be123735b12d4085a51d060c2c9fc, type: 3}
+  _slimeOfThisProjectile: {fileID: 6044890403820109652, guid: b4178c6cf8d7ea64186d4592588cca33, type: 3}
   _cannonSlimeTag: CannonSlime

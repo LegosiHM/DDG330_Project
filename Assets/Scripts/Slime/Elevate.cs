@@ -42,6 +42,7 @@ public class Elevate : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        /*
         if(other.transform == transform.parent)
         {
             Debug.Log("Hell no");
@@ -52,6 +53,7 @@ public class Elevate : MonoBehaviour
         {
             ExtendSlimeOnOneSide();
         }
+        */
     }
 
     public void ExtendSlimeOnOneSide()
