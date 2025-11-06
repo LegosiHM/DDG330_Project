@@ -21,13 +21,6 @@ public class Projectile : MonoBehaviour
             return; //prevent spoling more than 1 slime at once
         }
 
-        if (other.gameObject.CompareTag(_cannonSlimeTag))
-        {
-            other.GetComponent<CannonSlime>().TakenProjectileRegister(gameObject.GetComponent<Projectile>());
-            Destroy(gameObject);
-            other.GetComponent<CannonSlime>().ShootProjectileInDirection();
-            _isDestroy = true;
-        }
         else
         {
             _newSlime = Instantiate(_slimeOfThisProjectile, transform.position, transform.rotation);

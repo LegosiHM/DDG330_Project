@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(LineRenderer))]
 public class CannonSlime : MonoBehaviour
 {
+    /*
     [SerializeField] Transform StartPosition;
     [SerializeField] float force = 10f;
     private Projectile takenProjectile;
@@ -24,4 +26,5 @@ public class CannonSlime : MonoBehaviour
         shootingProjectile = Instantiate(takenProjectile, StartPosition.position, Quaternion.identity);
         shootingProjectile.GetComponent<Rigidbody>().AddForce(StartPosition.forward * force, ForceMode.Impulse);
     }
+    */
 }

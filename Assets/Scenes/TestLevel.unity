@@ -69841,6 +69841,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7575944241821400178, guid: acbca96f93a8e4c49990d42e75ac1923, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 9054823642922600993, guid: acbca96f93a8e4c49990d42e75ac1923, type: 3}
       propertyPath: m_Center.y
       value: 0
@@ -103081,7 +103085,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3, y: 0, z: 30}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 173.49, y: 1, z: 180.97}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1787848824}
@@ -127997,15 +128001,15 @@ PrefabInstance:
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.data[0]
       value: 
-      objectReference: {fileID: 2994297297018350002, guid: 1232ca6252412bd4083809e59c72d44e, type: 3}
+      objectReference: {fileID: 2994297297018350002, guid: 4d0f83bc4bfc04749985d282faf7e9bc, type: 3}
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.data[1]
       value: 
-      objectReference: {fileID: 2994297297018350002, guid: 4d0f83bc4bfc04749985d282faf7e9bc, type: 3}
+      objectReference: {fileID: 2994297297018350002, guid: 1edfabb9e5853744ca00d8aae4f6f74c, type: 3}
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.data[2]
       value: 
-      objectReference: {fileID: 2994297297018350002, guid: 1edfabb9e5853744ca00d8aae4f6f74c, type: 3}
+      objectReference: {fileID: 2994297297018350002, guid: 1232ca6252412bd4083809e59c72d44e, type: 3}
     - target: {fileID: 1195058801110801940, guid: 4c7ebcffade97bc4b9bcb5ced77c7040, type: 3}
       propertyPath: _SlimeProjectile.Array.data[3]
       value: 

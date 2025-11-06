@@ -16,6 +16,7 @@ public class ElevatorSlime : MonoBehaviour
 
     private Slime slimeComponent;
     private Vector3 _originalPosition => slimeComponent.slimeOriginalPosition;
+    private Vector3 _previousPosition;
 
 
     void Start()
@@ -79,6 +80,16 @@ public class ElevatorSlime : MonoBehaviour
                     float moveStep = MathF.Min(_moveSpeed * Time.deltaTime, remainingDistance);
 
                     transform.Translate(Vector3.up * moveStep, Space.Self); //make object move depend on their rotation
+
+                    Vector3 movementDelta = transform.position - _previousPosition; //calculate movement in each frame
+
+                    CharacterController controller = other.GetComponent<CharacterController>();
+                    if (controller != null)
+                    {
+                        controller.Move(movementDelta); //move "other" by that amount of movement
+                        Debug.Log("Move");
+                    }
+
                 }
             }
             else //countdown to avoid some moving issue
@@ -87,6 +98,8 @@ public class ElevatorSlime : MonoBehaviour
                 _moveDelayCount = Mathf.Clamp(_moveDelayCount, 0, _moveDelay);
             }
         }
+
+        _previousPosition = transform.position;
     }
     private void OnTriggerExit(Collider other)
     {

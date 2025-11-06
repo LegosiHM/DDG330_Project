@@ -24,6 +24,8 @@ public class SlimeMovement : MonoBehaviour
     float turnSmoothVelocity;
     [SerializeField] private float turnSmoothTime = 0.1f;
 
+    [SerializeField] private float externalVelocityDampening = 2f;
+    private Vector3 externalVelocity;
 
     public void SlimeMoving()
     {
@@ -47,7 +49,12 @@ public class SlimeMovement : MonoBehaviour
         }
         //gravity
         velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+
+        externalVelocity = Vector3.Lerp(externalVelocity, Vector3.zero, externalVelocityDampening * Time.deltaTime); //fade out external velocity overtime
+
+        Vector3 combineVelocity = velocity + externalVelocity;
+
+        controller.Move(combineVelocity * Time.deltaTime);
         //walk
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -65,5 +72,10 @@ public class SlimeMovement : MonoBehaviour
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
 
+    }
+
+    public void ApplyExternalVelocity(Vector3 exVelocity)
+    {
+        externalVelocity += exVelocity;
     }
 }
