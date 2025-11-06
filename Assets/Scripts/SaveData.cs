@@ -16,5 +16,7 @@ public class SaveData : MonoBehaviour
         }
 
         FBPP.Start(config);
+
+        Debug.Log("Save Path: " + Application.persistentDataPath);
     }
 }

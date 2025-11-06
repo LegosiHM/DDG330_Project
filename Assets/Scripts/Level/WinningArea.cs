@@ -13,6 +13,7 @@ public class WinningArea : MonoBehaviour
         if (other.CompareTag(playerLayer))
         {
             Debug.Log("Win");
+            StarManager.Instance?.SaveBestStars();
             gameManager.SetState(new WinningState(gameManager));
         }
     }
