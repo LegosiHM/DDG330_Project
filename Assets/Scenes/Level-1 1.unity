@@ -30705,6 +30705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCamera: {fileID: 1159046029}
   _cannonCamera: {fileID: 1656016774}
+  _cannonFreeLook: {fileID: 0}
   _respawnPosition: {fileID: 0}
   _cannon: {fileID: 802986267}
   _playerMovement: {fileID: 2138666213}
@@ -153844,6 +153845,7 @@ GameObject:
   - component: {fileID: 1656016775}
   - component: {fileID: 1656016774}
   - component: {fileID: 1656016773}
+  - component: {fileID: 1656016776}
   m_Layer: 0
   m_Name: CannonCamera
   m_TagString: MainCamera
@@ -153925,6 +153927,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 51.5, y: 18.48, z: 0}
+--- !u!114 &1656016776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656016772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983370930efeb914b8b450930e692153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensitivity: 0.1
+  moveSpeed: 3
 --- !u!1 &1656315381
 GameObject:
   m_ObjectHideFlags: 0

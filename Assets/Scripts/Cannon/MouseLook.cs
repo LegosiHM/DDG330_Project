@@ -26,24 +26,19 @@ public class MouseLook : MonoBehaviour
 
     void Start()
     {
-        // Set target direction to the camera's initial orientation.
         targetDirection = transform.localRotation.eulerAngles;
 
-        // Set target direction for the character body to its inital state.
         if (characterBody)
+        {
             targetCharacterDirection = characterBody.transform.localRotation.eulerAngles;
-
+        }
     }
 
     Vector2 ScaleAndSmooth(Vector2 delta)
     {
-        //Apply sensetivity
         delta = Vector2.Scale(delta, new Vector2(sensitivity.x * smoothing.x, sensitivity.y * smoothing.y));
-
-        //Lerp from last frame
         smoothMouse.x = Mathf.Lerp(smoothMouse.x, delta.x, 1f / smoothing.x);
         smoothMouse.y = Mathf.Lerp(smoothMouse.y, delta.y, 1f / smoothing.y);
-
         return smoothMouse;
     }
 
@@ -61,15 +56,16 @@ public class MouseLook : MonoBehaviour
 
     private void ClampValues()
     {
-        // Clamp and apply the local x value first
         if (clampInDegrees.x < 360)
+        {
             mouseFinal.x = Mathf.Clamp(mouseFinal.x, -clampInDegrees.x * 0.5f, clampInDegrees.x * 0.5f);
+        }    
 
-        // Then clamp y value.
         if (clampInDegrees.y < 360)
+        {
             mouseFinal.y = Mathf.Clamp(mouseFinal.y, -clampInDegrees.y * 0.5f, clampInDegrees.y * 0.5f);
-
-        // Allow the script to clamp based on a desired target value.
+        }
+        
         var targetOrientation = Quaternion.Euler(targetDirection);
         transform.localRotation = Quaternion.AngleAxis(-mouseFinal.y, targetOrientation * Vector3.right) * targetOrientation;
 
@@ -80,7 +76,6 @@ public class MouseLook : MonoBehaviour
         var targetCharacterOrientation = Quaternion.Euler(targetCharacterDirection);
         Quaternion yRotation = Quaternion.identity;
 
-        // If there's a character body that acts as a parent to the camera
         if (characterBody)
         {
             yRotation = Quaternion.AngleAxis(mouseFinal.x, Vector3.up);

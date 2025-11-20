@@ -13,6 +13,9 @@ public class SlimeGameManager : MonoBehaviour
     [SerializeField] private Camera _cannonCamera;
     public Camera cannonCamera => _cannonCamera;
 
+    [SerializeField] private FreeLookCamera _cannonFreeLook;
+    public FreeLookCamera cannonFreeLook => _cannonFreeLook;
+
     [Header("Components")]
     [SerializeField] private Transform _respawnPosition;
     public Transform respawnPosition => _respawnPosition;
@@ -34,6 +37,7 @@ public class SlimeGameManager : MonoBehaviour
     {
         _cannonPredictor = _cannon.gameObject.GetComponent<TrajectoryPredictor>();
         _cannonLook = _cannon.gameObject.GetComponent<MouseLook>();
+        _cannonFreeLook = _cannonCamera.GetComponent<FreeLookCamera>();
         SetState(new ShootingState(this));
     }
 
