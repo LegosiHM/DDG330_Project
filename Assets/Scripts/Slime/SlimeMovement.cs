@@ -10,12 +10,15 @@ public class SlimeMovement : MonoBehaviour
     public Camera slimeCamera => _camera;
     [SerializeField] private CinemachineFreeLook _cinemachine;
     public CinemachineFreeLook slimeCinemachine => _cinemachine;
+    [SerializeField] private SlimeMovementSO _slimeMovementSO;
+    public SlimeMovementSO slimeMovementSO => _slimeMovementSO;
 
-    [SerializeField] private float speed = 6;
-    [SerializeField] private float gravity = -9.81f;
-    [SerializeField] private float jumpHeight = 3;
+    //[SerializeField] private float speed = 6;
+    private float gravity = -9.81f;
+    //[SerializeField] private float jumpHeight = 3;
     private Vector3 velocity;
-    private bool isGrounded;
+    private bool _isGrounded;
+    public bool isGrounded => _isGrounded;
 
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance = 0.4f;
@@ -33,7 +36,7 @@ public class SlimeMovement : MonoBehaviour
 
         //Debug.Log("isMoving");
         //jump
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        _isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         //Debug.Log("IsGrounded:" + isGrounded);
 
         /*
@@ -43,9 +46,9 @@ public class SlimeMovement : MonoBehaviour
         }
         */
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && _isGrounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            velocity.y = Mathf.Sqrt(slimeMovementSO.jumpHeight * -2 * gravity);
         }
         //gravity
         velocity.y += gravity * Time.deltaTime;
@@ -69,7 +72,7 @@ public class SlimeMovement : MonoBehaviour
             
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
+            controller.Move(moveDir.normalized * _slimeMovementSO.speed * Time.deltaTime);
         }
 
     }
@@ -77,5 +80,10 @@ public class SlimeMovement : MonoBehaviour
     public void ApplyExternalVelocity(Vector3 exVelocity)
     {
         externalVelocity += exVelocity;
+    }
+
+    public void ChangeSlimeMovementSO(SlimeMovementSO newSlimeMovementSO)
+    {
+        _slimeMovementSO = newSlimeMovementSO;
     }
 }

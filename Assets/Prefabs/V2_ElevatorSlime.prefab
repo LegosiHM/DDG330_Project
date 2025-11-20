@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035549779531443152}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17296048, y: 0.016322935, z: -0.0028668288, w: 0.9847894}
+  m_LocalRotation: {x: 0.19611613, y: -0, z: -0, w: 0.9805807}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -104,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2705625510517327101}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1370739, y: 0.016416298, z: -0.0022720068, w: 0.9904222}
+  m_LocalRotation: {x: 0.16036718, y: -0.0000005835432, z: 0.000000094808236, w: 0.98705745}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -364,7 +364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4929951af0c188f42ad9feb455baee84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _climbingSpeed: 0
   _wallDetectRadius: 0
   _groundDetectOffsetY: -1
   _groundDetectRadius: 1.5
@@ -384,9 +383,7 @@ MonoBehaviour:
   controller: {fileID: 9054823642922600993}
   _camera: {fileID: 7575944241821400178}
   _cinemachine: {fileID: 2404520053139323275}
-  speed: 5
-  gravity: -9.81
-  jumpHeight: 0
+  _slimeMovementSO: {fileID: 11400000, guid: 3c6f2630a6ea87644b69822056a04af6, type: 2}
   groundCheck: {fileID: 7480236798127098750}
   groundDistance: 0.2
   groundMask:
@@ -413,7 +410,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Size: {x: 0.4, y: 0.4, z: 0.4}
   m_Center: {x: 0, y: 0.45, z: 0}
 --- !u!114 &720054673291156047
 MonoBehaviour:
@@ -856,7 +853,7 @@ MonoBehaviour:
   m_TransparentLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_MinimumDistanceFromTarget: 1
+  m_MinimumDistanceFromTarget: 20
   m_AvoidObstacles: 1
   m_DistanceLimit: 0
   m_MinimumOcclusionTime: 0
@@ -1147,8 +1144,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8009833178359472087}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15501907, y: 0.01637238, z: -0.002569449, w: 0.98777246}
-  m_LocalPosition: {x: -0.08175762, y: 2.1041362, z: -2.4656081}
+  m_LocalRotation: {x: 0.17824744, y: 0, z: 0, w: 0.9839857}
+  m_LocalPosition: {x: -0.6666667, y: 1.8502779, z: -1.8000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1264,7 +1261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8131922182268774030}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.15501903, y: 0.016372379, z: -0.0025694484, w: 0.98777246}
+  m_LocalRotation: {x: 0.17824744, y: -0.00000026065663, z: 0.00000004721753, w: 0.9839857}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

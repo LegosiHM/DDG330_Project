@@ -146,5 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f0fd89412bc614c8273fa5f9595480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slimeOfThisProjectile: {fileID: 6044890403820109652, guid: de81a693788acaf469bf5928c8a3cd03, type: 3}
+  _slimeOfThisProjectile: {fileID: 6044890403820109652, guid: 59143b4d4af35d143b347aa87d20ee78, type: 3}
   _cannonSlimeTag: CannonSlime

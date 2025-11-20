@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SlimeClimbMovement : MonoBehaviour
 {
-    [SerializeField] private float _climbingSpeed = 3f;
+    //[SerializeField] private float _climbingSpeed = 3f;
     [SerializeField] private float _wallDetectRadius = 1f;
     [SerializeField] private float _groundDetectOffsetY;
     [SerializeField] private float _groundDetectRadius = 1.5f;
@@ -21,11 +21,14 @@ public class SlimeClimbMovement : MonoBehaviour
     private bool _isClimbing = false;
     private bool _isTouchingGround;
 
+    private SlimeMovementSO slimeMovementSO;
+
     [SerializeField] private CharacterController controller;
 
     void Start()
     {
         SlimeMovement = GetComponent<SlimeMovement>();
+        slimeMovementSO = SlimeMovement.slimeMovementSO;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -93,7 +96,7 @@ public class SlimeClimbMovement : MonoBehaviour
         {
             //Vector3 moveDir = Quaternion.Euler(0f, direction, 0f) * Vector3.up;
             //transform.localRotation = Quaternion.Euler(-90f, 0f, 0f);
-            controller.Move(moveDirection.normalized * _climbingSpeed * Time.deltaTime);
+            controller.Move(moveDirection.normalized * slimeMovementSO.climbSpeed * Time.deltaTime);
         }
 
         //Quaternion targetRotation = Quaternion.FromToRotation(transform.up, _groundSurface) * transform.rotation;
