@@ -6,7 +6,8 @@ using System;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private Slime _slimeOfThisProjectile;
-    [SerializeField] private string _cannonSlimeTag = "CannonSlime";
+    public Slime slimeOfThisProjectile => _slimeOfThisProjectile;
+    //[SerializeField] private string _cannonSlimeTag = "CannonSlime";
     private Slime _newSlime;
     public Slime newSlime => _newSlime;
 

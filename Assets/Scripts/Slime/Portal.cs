@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    [SerializeField] private string playerLayer = "Player";
     [SerializeField] private Vector3 portalDestinationOffset;
     [SerializeField] private float teleportDelay = 3f;
 

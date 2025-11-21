@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.UI;
 
 public class Slime : MonoBehaviour
 {
+    [Header("Slime Display Icon")]
+    [SerializeField] private GameObject _slimeIcon;
+    public GameObject slimeIcon => _slimeIcon;
+
+    [Header("Slime Lifespan")]
     [SerializeField] private float _slimeDeathMaxTimer = 5f;
     [SerializeField] private float _slimeDeathTimeLeft;
     public float slimeDeathTimeLeft => _slimeDeathTimeLeft;

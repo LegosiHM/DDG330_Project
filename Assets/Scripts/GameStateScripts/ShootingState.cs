@@ -52,6 +52,7 @@ public class ShootingState : GameState
         }
 
         _gameManager.cannon.SwapSlime();
+        _gameManager.cannon.DisplaySlime();
         _gameManager.cannon.Predict();               
         _gameManager.cannonLook.CannonRotate();      
 

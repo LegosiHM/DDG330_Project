@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c222af341e67c4aa48828199db8365, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _slimeIcon: {fileID: 2353795015484131377, guid: f668fd88e9bbe2a4da9ace25ecb37d2d, type: 3}
   _slimeDeathMaxTimer: 1000
   _slimeDeathTimeLeft: 0
   _slimeManualStopTimer: 1000
@@ -472,7 +473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82752018e1fabe4f84a1b820e23d63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLayer: Player
   portalDestinationOffset: {x: 0, y: 3, z: 0}
   teleportDelay: 1.5
 --- !u!1 &5387379559976974174
