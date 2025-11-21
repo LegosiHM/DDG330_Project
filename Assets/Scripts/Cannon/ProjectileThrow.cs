@@ -26,6 +26,8 @@ public class ProjectileThrow : MonoBehaviour
 
     public InputAction fire;
 
+    private int index = 0;
+
     void OnEnable()
     {
         trajectoryPredictor = GetComponent<TrajectoryPredictor>();
@@ -68,6 +70,7 @@ public class ProjectileThrow : MonoBehaviour
     {
         _thrownObject = Instantiate(objectToThrow, StartPosition.position, Quaternion.identity);
         _thrownObject.GetComponent<Rigidbody>().AddForce(StartPosition.forward * force, ForceMode.Impulse);
+        _SlimeProjectile.RemoveAt(index);
     }
 
 
@@ -75,12 +78,37 @@ public class ProjectileThrow : MonoBehaviour
     {
         if (_SlimeProjectile.Count > 0)
         {
-            _objectToThrow = _SlimeProjectile[0];
-            _SlimeProjectile.RemoveAt(0);
+            if(index > _SlimeProjectile.Count)
+            {
+                index = _SlimeProjectile.Count;
+            }
+
+            _objectToThrow = _SlimeProjectile[index];
+            //_SlimeProjectile.RemoveAt(index);
         }
         else
         {
             Debug.Log("No Slime Left");
+        }
+    }
+
+    public void SwapSlime()
+    {
+        if(Input.mouseScrollDelta.y > 0)
+        {
+            index++;
+            index = Mathf.Clamp(index, 0, _SlimeProjectile.Count -1);
+
+            _objectToThrow = _SlimeProjectile[index];
+            //Debug.Log(_SlimeProjectile[index].name);
+        }
+        else if (Input.mouseScrollDelta.y < 0)
+        {
+            index--;
+            index = Mathf.Clamp(index, 0, _SlimeProjectile.Count-1);
+
+            _objectToThrow = _SlimeProjectile[index];
+            //Debug.Log(_SlimeProjectile[index].name);
         }
     }
 }

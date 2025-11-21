@@ -51,6 +51,7 @@ public class ShootingState : GameState
             _gameManager.cannonPredictor.SetTrajectoryVisible(true);
         }
 
+        _gameManager.cannon.SwapSlime();
         _gameManager.cannon.Predict();               
         _gameManager.cannonLook.CannonRotate();      
 

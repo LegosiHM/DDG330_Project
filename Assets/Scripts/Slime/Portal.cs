@@ -30,7 +30,7 @@ public class Portal : MonoBehaviour
                 return;
             }
 
-            else if (other.CompareTag(playerLayer))
+            else if (other.GetComponent<Slime>() != null) //is slime only
             {
                 StartCoroutine(TeleportCountdown(other));
                 
@@ -50,7 +50,7 @@ public class Portal : MonoBehaviour
                 return;
             }
 
-            else if (other.CompareTag(playerLayer))
+            else if (other.GetComponent<Slime>() != null) //is slime only
             {
                 StopAllCoroutines();
 
