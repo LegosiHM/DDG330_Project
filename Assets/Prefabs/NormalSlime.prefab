@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035549779531443152}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19611613, y: 0, z: 0, w: 0.9805807}
+  m_LocalRotation: {x: 0.19611613, y: -0, z: -0, w: 0.9805807}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -104,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2705625510517327101}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16036718, y: 0, z: 0, w: 0.98705745}
+  m_LocalRotation: {x: 0.16036718, y: -0.0000014369208, z: 0.00000023345645, w: 0.98705745}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -237,6 +237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slimeIcon: {fileID: 7894678862117321075, guid: b20ffb837d8616d429671ea2be9020e9, type: 3}
+  _slimeHPBar: {fileID: 0}
+  _slimeManualStopBar: {fileID: 0}
   _slimeDeathMaxTimer: 1000
   _slimeDeathTimeLeft: 0
   _slimeManualStopTimer: 1000
@@ -1084,7 +1086,7 @@ Transform:
   m_GameObject: {fileID: 8009833178359472087}
   serializedVersion: 2
   m_LocalRotation: {x: 0.17824744, y: 0, z: 0, w: 0.9839857}
-  m_LocalPosition: {x: 0, y: 16.595385, z: -14.201894}
+  m_LocalPosition: {x: -1.5384616, y: 0.19266653, z: -4.1538463}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1200,7 +1202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8131922182268774030}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17824744, y: 0, z: 0, w: 0.9839857}
+  m_LocalRotation: {x: 0.17824744, y: -0.00000077821306, z: 0.00000014097205, w: 0.9839857}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

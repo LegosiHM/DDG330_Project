@@ -13,6 +13,8 @@ public class ShootingState : GameState
 
     public override void OnEnter()
     {
+        _gameManager.HideLifespanBar();
+
         if (_gameManager.cannon.SlimeProjectile.Count > 0)
         {
             _gameManager.cannon.LoadNextSlime();

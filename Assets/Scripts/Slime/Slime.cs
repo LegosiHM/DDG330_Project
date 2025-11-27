@@ -13,12 +13,14 @@ public class Slime : MonoBehaviour
     [Header("Slime Lifespan")]
     [SerializeField] private float _slimeDeathMaxTimer = 5f;
     [SerializeField] private float _slimeDeathTimeLeft;
+    public float slimeDeathMaxTimer => _slimeDeathMaxTimer;
     public float slimeDeathTimeLeft => _slimeDeathTimeLeft;
 
     [SerializeField] private float _slimeManualStopTimer = 1f;
     [SerializeField] private float _slimeManualStopTimeLeft;
 
     public float slimeManualStopTimeLeft => _slimeManualStopTimeLeft;
+    public float slimeManualStopTimer => _slimeManualStopTimer;
 
     //private bool slimeStopMoving = false;
     //private Vector3 normalScale;
@@ -41,10 +43,6 @@ public class Slime : MonoBehaviour
         _SlimeNormalMovement = GetComponent<SlimeMovement>();
         _SlimeClimbMovement = GetComponent<SlimeClimbMovement>();
         rb = GetComponent<Rigidbody>();
-    }
-
-    void Update()
-    {
     }
 
     public void SlimeDeathCountDown()
@@ -93,5 +91,4 @@ public class Slime : MonoBehaviour
         _slimeOriginalPosition = transform.position;
         Debug.Log("slime is dead");
     }
-
 }

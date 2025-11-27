@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SlimeGameManager : MonoBehaviour
 {
@@ -31,6 +32,11 @@ public class SlimeGameManager : MonoBehaviour
 
     private GameState _currentState;
     public GameState currentState => _currentState;
+
+    [Header("Slime HP Bar")]
+    [SerializeField] private GameObject _lifespanDisplayer;
+    [SerializeField] private Image _slimeLifespanBar;
+    [SerializeField] private Image _slimeManualStopBar;
 
 
     private void Start()
@@ -73,5 +79,31 @@ public class SlimeGameManager : MonoBehaviour
     public void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //debug reset scene
+    }
+    public void ShowLifespanBar()
+    {
+        _lifespanDisplayer.SetActive(true);
+    }
+
+    public void HideLifespanBar()
+    {
+        _lifespanDisplayer.SetActive(false);
+    }
+
+    public void UpdateHPBar(float currentLifespan, float maxLifespan)
+    {
+        Vector3 barScale = _slimeLifespanBar.transform.localScale;
+        barScale.x = currentLifespan / maxLifespan;
+
+        _slimeLifespanBar.transform.localScale = barScale;
+        //_slimeLifespanBar.transform.localScale;
+    }
+
+    public void UpdateManualStopbar(float currentLifespan, float maxLifespan)
+    {
+        Vector3 barScale = _slimeManualStopBar.transform.localScale;
+        barScale.x = currentLifespan / maxLifespan;
+
+        _slimeManualStopBar.transform.localScale = barScale;
     }
 }
