@@ -239,9 +239,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slimeIcon: {fileID: 2353795015484131377, guid: f668fd88e9bbe2a4da9ace25ecb37d2d, type: 3}
-  _slimeDeathMaxTimer: 1000
+  _slimeDeathMaxTimer: 20
   _slimeDeathTimeLeft: 0
-  _slimeManualStopTimer: 1000
+  _slimeManualStopTimer: 5
   _slimeManualStopTimeLeft: 0
 --- !u!54 &1790777953282797509
 Rigidbody:
@@ -418,7 +418,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d1be5cbea130544f6b29523de1f28c65, type: 3}
+  - {fileID: 2100000, guid: b98879e7cbeb37641b3d55dd15e55be3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1067,7 +1067,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7393336217586993295}
-  m_Mesh: {fileID: -2659932603334005503, guid: 9981a4f80fb95b04fb9d36e07baa17cb, type: 3}
+  m_Mesh: {fileID: -2617698658840155970, guid: 056784e08510fd1478dd0ae22b90765b, type: 3}
 --- !u!23 &291168852881751902
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1088,7 +1088,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0ac85d6e19b5e24419fc938040be61e1, type: 2}
+  - {fileID: 2100000, guid: c0fa344633747f9439041f9b0cc322de, type: 2}
   - {fileID: 2100000, guid: 5b87a972518a3154aa254612d431fa98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

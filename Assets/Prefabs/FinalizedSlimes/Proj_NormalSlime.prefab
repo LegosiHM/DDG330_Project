@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7468603855156948306}
   - component: {fileID: 2994297297018350002}
   m_Layer: 0
-  m_Name: V2_ElevatorSlimeProjectile 1
+  m_Name: Proj_NormalSlime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 507fed0338ce65948937cd10a0904a51, type: 2}
+  - {fileID: 2100000, guid: 0ac85d6e19b5e24419fc938040be61e1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,5 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f0fd89412bc614c8273fa5f9595480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slimeOfThisProjectile: {fileID: 6044890403820109652, guid: b4178c6cf8d7ea64186d4592588cca33, type: 3}
-  _cannonSlimeTag: CannonSlime
+  _slimeOfThisProjectile: {fileID: 6044890403820109652, guid: bd8be123735b12d4085a51d060c2c9fc, type: 3}
