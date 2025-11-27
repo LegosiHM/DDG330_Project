@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/FinalizedLevel/LevelSelection.unity
     guid: 1191fa849adde1543aba7ff7bf9f8a39
   - enabled: 1
-    path: Assets/Scenes/Tutorials/CH1_Tutorial.unity
-    guid: 5a132cbfe00031a44a29bc90a4a5821b
-  - enabled: 1
     path: Assets/Scenes/FinalizedLevel/Level-1-Final.unity
     guid: cb081ebfbf1e6104cade4b55a8c05a7f
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/CH1_Tutorial.unity
+    guid: 5a132cbfe00031a44a29bc90a4a5821b
   - enabled: 1
     path: Assets/Scenes/FinalizedLevel/Level-2-Final.unity
     guid: 834e00d913f06734ebddd18a373673fa
@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorials/CH2_Tutorial.unity
     guid: e9d7591fa049c674a8df5a3cda140fe5
   - enabled: 1
+    path: Assets/Scenes/FinalizedLevel/Level-3-Final.unity
+    guid: 02eef1f1664186d4db86c99e138bf699
+  - enabled: 1
     path: Assets/Scenes/Tutorials/CH3_Tutorial.unity
     guid: 2c1a49cdce6d0b74e93151248f551fe8
+  - enabled: 1
+    path: Assets/Scenes/FinalizedLevel/Level-4-Final.unity
+    guid: 8edfb2f67dc5c2049b5907776d454750
   m_configObjects: {}

@@ -14,6 +14,7 @@ public class Star : MonoBehaviour
     {
         if (collider.GetComponent<PlayerMovement>() != null)
         {
+            SoundManager.Instance.PlaySFX("star_collect");
             StarManager.Instance.CollectStar();
             Destroy(gameObject);
         }
