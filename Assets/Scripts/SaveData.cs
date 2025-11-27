@@ -49,7 +49,7 @@ public class SaveData : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             FBPP.DeleteAll();
             FBPP.Save();
