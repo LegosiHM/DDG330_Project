@@ -322,9 +322,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slimeIcon: {fileID: 7379222017766485937, guid: 87eabf4383ac44747a012d4e9810e8a2, type: 3}
-  _slimeDeathMaxTimer: 1000
+  _slimeDeathMaxTimer: 10
   _slimeDeathTimeLeft: 0
-  _slimeManualStopTimer: 1000
+  _slimeManualStopTimer: 3
   _slimeManualStopTimeLeft: 0
 --- !u!54 &1790777953282797509
 Rigidbody:
@@ -600,7 +600,7 @@ GameObject:
   - component: {fileID: 4158901493534778890}
   - component: {fileID: 3329374110103284397}
   m_Layer: 10
-  m_Name: ExtendPart
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -650,8 +650,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8c3f067d97073e844a53d8283b2d3820, type: 2}
-  - {fileID: 2100000, guid: f2203f80845a66e4ab859ec6b767fcde, type: 2}
+  - {fileID: 2100000, guid: 507fed0338ce65948937cd10a0904a51, type: 2}
+  - {fileID: 2100000, guid: 4d0ca150427ac2f41b5cd8b25e023e6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
