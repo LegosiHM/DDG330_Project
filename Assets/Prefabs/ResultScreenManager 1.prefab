@@ -1120,7 +1120,7 @@ GameObject:
   - component: {fileID: 4581671446144339485}
   - component: {fileID: 3978045244163598392}
   m_Layer: 5
-  m_Name: ResultScreenManager
+  m_Name: ResultScreenManager 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

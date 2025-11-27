@@ -6,7 +6,7 @@ public class DebugText : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _stateText;
     [SerializeField] private TextMeshProUGUI _deathTimerText;
-    [SerializeField] private TextMeshProUGUI _manualStopTimerText;
+    //[SerializeField] private TextMeshProUGUI _manualStopTimerText;
 
     //[SerializeField] private TextMeshProUGUI _debugText;
     [SerializeField] private SlimeGameManager _gameManager;
