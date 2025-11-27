@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 507fed0338ce65948937cd10a0904a51, type: 2}
+  - {fileID: 2100000, guid: b98879e7cbeb37641b3d55dd15e55be3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,4 +147,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slimeOfThisProjectile: {fileID: 6044890403820109652, guid: 59143b4d4af35d143b347aa87d20ee78, type: 3}
-  _cannonSlimeTag: CannonSlime
