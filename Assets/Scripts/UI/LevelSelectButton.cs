@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 public class LevelSelectButton : MonoBehaviour
 {
     [Header("Level Settings")]
-    public string levelID;               // Example: "Level1"
-    public string tutorialSceneName;     // Example: "Level1_Tutorial"
+    public string levelID;              
+    public string tutorialSceneName;     
 
     [Header("UI References")]
     public Button button;

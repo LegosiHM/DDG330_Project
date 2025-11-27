@@ -43,10 +43,6 @@ public class ResultScreenManager : MonoBehaviour
 
         if (panel != null)
             panel.SetActive(false);
-
-        nextLevelButton.onClick.AddListener(LoadNextLevel);
-        retryButton.onClick.AddListener(RetryLevel);
-        mainMenuButton.onClick.AddListener(ReturnToMainMenu);
     }
 
     public void ShowResult()

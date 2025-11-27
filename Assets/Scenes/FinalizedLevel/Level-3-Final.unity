@@ -85415,13 +85415,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2014208398}
     m_Modifications:
+    - target: {fileID: 1532352664727045931, guid: 03aed49ff78bce84b8265e2d4e135eb7, type: 3}
+      propertyPath: nextLevelSceneName
+      value: Level-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 279896188845175703, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1468923880}
+    - target: {fileID: 279896188845175703, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNextLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 3978045244163598392, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
       propertyPath: panel
       value: 
       objectReference: {fileID: 369030578}
     - target: {fileID: 3978045244163598392, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
       propertyPath: nextLevelSceneName
-      value: Level-2
+      value: Level-4-Final
       objectReference: {fileID: 0}
     - target: {fileID: 4297175543589574700, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
       propertyPath: m_IsActive
@@ -85519,6 +85531,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5709846059272536045, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1468923880}
+    - target: {fileID: 5709846059272536045, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7617948017579022329, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1468923880}
+    - target: {fileID: 7617948017579022329, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RetryLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 7769165894781951449, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
       propertyPath: m_Name
       value: ResultScreenManager
@@ -85526,10 +85554,6 @@ PrefabInstance:
     - target: {fileID: 7769165894781951449, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1532352664727045931, guid: 03aed49ff78bce84b8265e2d4e135eb7, type: 3}
-      propertyPath: nextLevelSceneName
-      value: Level-2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -85541,6 +85565,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4581671446144339485, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
   m_PrefabInstance: {fileID: 1468923878}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1468923880 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3978045244163598392, guid: 1f578fce931ed9a44a293411dc9b200f, type: 3}
+  m_PrefabInstance: {fileID: 1468923878}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c534f01c97c4494292e3598827a99c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1471852567
 GameObject:
   m_ObjectHideFlags: 0

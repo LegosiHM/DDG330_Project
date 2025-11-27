@@ -4,12 +4,12 @@ using TMPro;
 public class BlinkText : MonoBehaviour
 {
     [Header("Timing")]
-    public float showDelay = 1.5f;     // time before text starts blinking
-    public float blinkSpeed = 1.0f;    // how fast it blinks
+    public float showDelay = 1.5f;     
+    public float blinkSpeed = 1.0f;    
 
     [Header("Alpha Range")]
-    public float minAlpha = 0.4f;      // lowest visibility
-    public float maxAlpha = 1f;        // highest visibility
+    public float minAlpha = 0.4f;      
+    public float maxAlpha = 1f;        
 
     private TextMeshProUGUI txt;
     private float timer = 0f;
@@ -18,8 +18,8 @@ public class BlinkText : MonoBehaviour
     void Start()
     {
         txt = GetComponent<TextMeshProUGUI>();
-        txt.alpha = 0f;        // start fully hidden
-        txt.enabled = false;   // hide text until delay passes
+        txt.alpha = 0f;       
+        txt.enabled = false;   
     }
 
     void Update()
