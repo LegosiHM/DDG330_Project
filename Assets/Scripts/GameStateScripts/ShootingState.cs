@@ -14,6 +14,7 @@ public class ShootingState : GameState
     public override void OnEnter()
     {
         SoundManager.Instance.StopContinuous("slime_move");
+        SoundManager.Instance.FadeMusic("bgm_cannon", 1f);
         _gameManager.HideLifespanBar();
 
         if (_gameManager.cannon.SlimeProjectile.Count > 0)

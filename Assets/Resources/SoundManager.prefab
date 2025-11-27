@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5673848618169271553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6574316048330287246}
+  - component: {fileID: 4541084128059874072}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6574316048330287246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673848618169271553}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.66964, y: -11.432376, z: -0.6446786}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4541084128059874072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5673848618169271553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ddd00ba18143b94e96d566dede2956a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: f2b99b2073570ef449adbb785480c22d, type: 2}
+  masterVolumeParam: MasterVolume
+  musicVolumeParam: MusicVolume
+  sfxVolumeParam: SFXVolume
+  uiVolumeParam: UIVolume
+  ambienceVolumeParam: AmbienceVolume
+  continuousVolumeParam: ContinuousVolume
+  musicGroup: {fileID: 1937149801938070323, guid: f2b99b2073570ef449adbb785480c22d, type: 2}
+  sfxGroup: {fileID: -4849919344067302692, guid: f2b99b2073570ef449adbb785480c22d, type: 2}
+  uiGroup: {fileID: 7485426153870383459, guid: f2b99b2073570ef449adbb785480c22d, type: 2}
+  ambienceGroup: {fileID: 1054977286020195699, guid: f2b99b2073570ef449adbb785480c22d, type: 2}
+  continuousGroup: {fileID: 2633892148166052890, guid: f2b99b2073570ef449adbb785480c22d, type: 2}
+  library: {fileID: 11400000, guid: 4e03ca3af9caf214b8e0152ca3a8a7ca, type: 2}

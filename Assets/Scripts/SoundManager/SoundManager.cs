@@ -6,7 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager Instance { get; private set; }
+    public static SoundManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+                CreateSingleton();
+
+            return _instance;
+        }
+    }
+    private static SoundManager _instance;
+
 
     private string currentMusicID = "";
 
@@ -45,20 +56,21 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
-        Instance = this;
+        _instance = this;
         DontDestroyOnLoad(gameObject);
 
         SetupSources();
         LoadSavedVolumes();
-
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+
+
 
     void SetupSources()
     {
@@ -254,5 +266,26 @@ public class SoundManager : MonoBehaviour
     {
         SoundManager.Instance.FadeMusic("bgm_cannon", 1f);
     }
+
+    private static void CreateSingleton()
+    {
+        SoundManager existing = FindObjectOfType<SoundManager>();
+        if (existing != null)
+        {
+            _instance = existing;
+            return;
+        }
+
+        SoundManager prefab = Resources.Load<SoundManager>("SoundManager");
+        if (prefab != null)
+        {
+            _instance = Instantiate(prefab);
+            _instance.gameObject.name = "SoundManager (AutoCreated)";
+            return;
+        }
+
+        Debug.LogError("SoundManager prefab not found in Resources folder!");
+    }
+
 
 }
