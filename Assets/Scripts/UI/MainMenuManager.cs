@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private GameObject optionPanel;
     [SerializeField] private GameObject creditPanel;
     [SerializeField] private GameObject[] creditPages;
+
+    [SerializeField] private AudioMixer myMixer;
+    [SerializeField] private Slider musicSlider;
     private int currentPage = 0;
 
     public void Start()
     {
         SoundManager.Instance.FadeMusic("bgm_cannon", 1f);
+        float saved = SoundManager.Instance.GetVolume("MasterVolume");
+        musicSlider.value = saved;
+        SetMusicVolume();
         creditPanel.SetActive(false);
         optionPanel.SetActive(false);
     }
@@ -21,14 +29,20 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 
-    public void OpenOption()
+    public void ToggleOption()
     {
-        optionPanel.SetActive(true);
+        optionPanel.SetActive(!optionPanel.activeSelf);
     }
 
-    public void CloseOption()
+    public void SetMusicVolume()
     {
-        optionPanel.SetActive(false);
+        float volume = musicSlider.value;
+
+        
+        if (volume < 0.0001f)
+            volume = 0.0001f;
+
+        myMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
     }
 
     public void OpenCredit()
