@@ -2314,6 +2314,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3476742132020886678, guid: abc279d225c292c40a746053f268af72, type: 3}
   m_PrefabInstance: {fileID: 43437539}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &44230847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 44230849}
+  - component: {fileID: 44230848}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &44230848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44230847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ddd00ba18143b94e96d566dede2956a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: f2b99b2073570ef449adbb785480c22d, type: 2}
+  masterVolumeParam: MasterVolume
+  musicVolumeParam: MusicVolume
+  sfxVolumeParam: SFXVolume
+  uiVolumeParam: UIVolume
+  ambienceVolumeParam: AmbienceVolume
+  musicGroup: {fileID: 1937149801938070323, guid: f2b99b2073570ef449adbb785480c22d, type: 2}
+  sfxGroup: {fileID: -4849919344067302692, guid: f2b99b2073570ef449adbb785480c22d, type: 2}
+  uiGroup: {fileID: 7485426153870383459, guid: f2b99b2073570ef449adbb785480c22d, type: 2}
+  ambienceGroup: {fileID: 1054977286020195699, guid: f2b99b2073570ef449adbb785480c22d, type: 2}
+  library: {fileID: 11400000, guid: 4e03ca3af9caf214b8e0152ca3a8a7ca, type: 2}
+--- !u!4 &44230849
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44230847}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.683882, y: -5.831029, z: 16.405561}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &45358278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91132,3 +91187,4 @@ SceneRoots:
   - {fileID: 687973844}
   - {fileID: 1389198981}
   - {fileID: 1113339799}
+  - {fileID: 44230849}
