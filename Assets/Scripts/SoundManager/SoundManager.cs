@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
@@ -55,6 +56,8 @@ public class SoundManager : MonoBehaviour
 
         SetupSources();
         LoadSavedVolumes();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void SetupSources()
@@ -246,4 +249,10 @@ public class SoundManager : MonoBehaviour
 
         newSrc.volume = 1f;
     }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SoundManager.Instance.FadeMusic("bgm_cannon", 1f);
+    }
+
 }
