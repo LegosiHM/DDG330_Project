@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4db24a55e7f29c4ab710973eb8332a7, type: 3}
-  m_Name: SFX_PortalTick
+  m_Name: SFX_PlayerJump
   m_EditorClassIdentifier: 
-  id: portal_tick
-  clip: {fileID: 8300000, guid: 466afdb3aa127b74a96f654f0363aac2, type: 3}
+  id: player_jump
+  clip: {fileID: 8300000, guid: 0c0f7210c200b9640bb8089a3353cc9d, type: 3}
   volume: 1
   pitch: 1
-  randomizePitch: 0
+  randomizePitch: 1
   randomPitchMin: 0.95
   randomPitchMax: 1.05

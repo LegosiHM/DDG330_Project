@@ -58,6 +58,9 @@ public class ResultScreenManager : MonoBehaviour
 
         UpdateStars();
         UpdateTimes();
+
+        UnlockNextLevel();
+
         SetupButtons();
     }
 
@@ -125,5 +128,20 @@ public class ResultScreenManager : MonoBehaviour
         Cursor.visible = false;
 
         SceneManager.LoadScene("MainMenu");
+    }
+
+    private void UnlockNextLevel()
+    {
+        string nextLevelID = "";
+
+        if (_levelName == "Level1") nextLevelID = "Level2";
+        if (_levelName == "Level2") nextLevelID = "Level3";
+        if (_levelName == "Level3") nextLevelID = "Level4";
+
+        if (nextLevelID != "")
+        {
+            FBPP.SetInt(nextLevelID + "_Unlocked", 1);
+            FBPP.Save();
+        }
     }
 }

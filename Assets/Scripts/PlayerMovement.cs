@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     private string isJumpingParam = "IsJumping";
 
+    //private bool isWalkingSoundPlaying = false;
+
     // Update is called once per frame
     public void PlayerMoving()
     {
@@ -50,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
             animator.SetBool(isJumpingParam, true);
-            
+            SoundManager.Instance.PlaySFX("player_jump");
         }
 
         /*if (isGrounded)
@@ -91,5 +93,26 @@ public class PlayerMovement : MonoBehaviour
         float currentSpeed = new Vector3(controller.velocity.x, 0, controller.velocity.z).magnitude; 
         animator.SetFloat(speedParam, currentSpeed);
 
+        bool isMoving = (horizontal != 0 || vertical != 0);
+
+        /*if (isGrounded && isMoving && !isWalkingSoundPlaying)
+        {
+            SoundManager.Instance.PlayContinuous("player_walk", 1f);
+            isWalkingSoundPlaying = true;
+        }
+
+        if (!isGrounded || !isMoving)
+        {
+            if (isWalkingSoundPlaying)
+            {
+                SoundManager.Instance.StopContinuous("player_walk");
+                isWalkingSoundPlaying = false;
+            }
+        }*/
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Debug.Log("TRY PLAY HUMAN BGM");
+            SoundManager.Instance.FadeMusic("bgm_human", 1f);
+        }
     }
 }

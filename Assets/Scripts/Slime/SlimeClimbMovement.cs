@@ -38,7 +38,7 @@ public class SlimeClimbMovement : MonoBehaviour
 
         if (_isClimbing)
         {
-            Debug.Log("isClimbing");
+            //Debug.Log("isClimbing");
             Climbing();
             if (!_isTouchingGround)
             {

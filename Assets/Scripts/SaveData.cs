@@ -1,22 +1,63 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SaveData : MonoBehaviour
 {
+    private static SaveData _instance;
+    private static bool _initialized = false;
 
-    void Start()
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void AutoCreate()
     {
-        var config = new FBPPConfig();
+        _instance = FindObjectOfType<SaveData>();
+
+        if (_instance == null)
         {
-            config.SaveFileName = "saveData.txt";
-            config.AutoSaveData = true;
-            config.ScrambleSaveData = false;
-            config.SaveFilePath = Application.persistentDataPath;
+            GameObject obj = new GameObject("SaveData");
+            _instance = obj.AddComponent<SaveData>();
         }
 
-        FBPP.Start(config);
+        DontDestroyOnLoad(_instance.gameObject);
+    }
 
-        Debug.Log("Save Path: " + Application.persistentDataPath);
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        if (_initialized == false)
+        {
+            var config = new FBPPConfig()
+            {
+                SaveFileName = "saveData.txt",
+                AutoSaveData = true,
+                ScrambleSaveData = false,
+                SaveFilePath = Application.persistentDataPath
+            };
+
+            FBPP.Start(config);
+            _initialized = true;
+        }
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            FBPP.DeleteAll();
+            FBPP.Save();
+
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+
+            Debug.Log("ALL SAVE DATA DELETED (FBPP + PlayerPrefs)");
+        }
     }
 }
