@@ -53,4 +53,9 @@ public class StarManager : MonoBehaviour
         if (starText != null)
             starText.text = starsCollected + " / " + totalStars;
     }
+
+    public int GetCurrentStars()
+    {
+        return starsCollected;
+    }
 }
