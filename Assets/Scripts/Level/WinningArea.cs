@@ -10,7 +10,7 @@ public class WinningArea : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(playerLayer))
+        if (other.GetComponent<PlayerMovement>() != null)
         {
             Debug.Log("Win");
             StarManager.Instance.SaveBestStars();

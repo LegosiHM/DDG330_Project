@@ -12,7 +12,7 @@ public class Star : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.CompareTag("Player"))
+        if (collider.GetComponent<PlayerMovement>() != null)
         {
             StarManager.Instance.CollectStar();
             Destroy(gameObject);
