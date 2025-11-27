@@ -58,11 +58,29 @@ public class Portal : MonoBehaviour
     }
     IEnumerator TeleportCountdown(Collider other)
     {
-        yield return new WaitForSeconds(teleportDelay);
+        float timer = teleportDelay;
+        float max = teleportDelay;
 
-        other.GetComponent<CharacterController>().enabled = false; //disable character controller to teleport
+        // Start ticking with low volume
+        SoundManager.Instance.PlayContinuous("portal_tick", 0.2f);
+
+        while (timer > 0f)
+        {
+            timer -= Time.deltaTime;
+
+            float percent = 1f - (timer / max);
+
+            float newVolume = Mathf.Lerp(0.2f, 1.0f, percent);
+            SoundManager.Instance.PlayContinuous("portal_tick", newVolume);
+
+            yield return null;
+        }
+
+        SoundManager.Instance.StopContinuous("portal_tick");
+        SoundManager.Instance.PlaySFX("slime_teleport");
+
+        other.GetComponent<CharacterController>().enabled = false;
         other.transform.position = portalDestination + portalDestinationOffset;
-        other.GetComponent<CharacterController>().enabled = true; //reenable character controller
+        other.GetComponent<CharacterController>().enabled = true;
     }
-
 }

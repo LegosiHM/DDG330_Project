@@ -30,6 +30,7 @@ public class TriggerButton : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Enter");
+        SoundManager.Instance.PlaySFX("button_press");
         _isInsideTrigger = true;
     }
 

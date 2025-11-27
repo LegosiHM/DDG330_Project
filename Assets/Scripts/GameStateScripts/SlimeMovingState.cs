@@ -12,12 +12,15 @@ public class SlimeMovingState : GameState
 
     public override void OnEnter()
     {
+        SoundManager.Instance.FadeMusic("bgm_slime", 1f);
         _gameManager.ShowLifespanBar();
     }
 
     public override void OnExit()
     {
+        SoundManager.Instance.StopContinuous("slime_move");
         _gameManager.cannon.thrownObject.newSlime.GetComponent<Slime>().MakeSlimeDead();
+        SoundManager.Instance.PlaySFX("slime_dead");
     }
 
     public override void OnUpdate()

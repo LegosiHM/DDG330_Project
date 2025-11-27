@@ -11,7 +11,9 @@ public class HumanMovingState : GameState
     }
 
     public override void OnEnter()
-    { 
+    {
+        SoundManager.Instance.StopContinuous("slime_move");
+        SoundManager.Instance.FadeMusic("bgm_human", 1f);
         _gameManager.EnablePlayerCamera();
     }
 

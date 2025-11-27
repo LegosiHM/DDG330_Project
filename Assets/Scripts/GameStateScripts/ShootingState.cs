@@ -13,6 +13,7 @@ public class ShootingState : GameState
 
     public override void OnEnter()
     {
+        SoundManager.Instance.StopContinuous("slime_move");
         _gameManager.HideLifespanBar();
 
         if (_gameManager.cannon.SlimeProjectile.Count > 0)

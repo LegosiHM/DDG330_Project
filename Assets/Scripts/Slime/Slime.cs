@@ -43,6 +43,7 @@ public class Slime : MonoBehaviour
         _SlimeNormalMovement = GetComponent<SlimeMovement>();
         _SlimeClimbMovement = GetComponent<SlimeClimbMovement>();
         rb = GetComponent<Rigidbody>();
+        SoundManager.Instance.PlaySFX("slime_land");
     }
 
     public void SlimeDeathCountDown()

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -16,12 +18,14 @@ public class SoundManager : MonoBehaviour
     public string sfxVolumeParam = "SFXVolume";
     public string uiVolumeParam = "UIVolume";
     public string ambienceVolumeParam = "AmbienceVolume";
+    public string continuousVolumeParam = "ContinuousVolume";
 
     [Header("Mixer Groups")]
     public AudioMixerGroup musicGroup;
     public AudioMixerGroup sfxGroup;
     public AudioMixerGroup uiGroup;
     public AudioMixerGroup ambienceGroup;
+    public AudioMixerGroup continuousGroup;
 
     [Header("Audio Library")]
     public AudioLibrary library;
@@ -30,6 +34,13 @@ public class SoundManager : MonoBehaviour
     private AudioSource sfxSource;
     private AudioSource uiSource;
     private AudioSource ambienceSource;
+
+    private AudioSource musicSourceA;
+    private AudioSource musicSourceB;
+    private bool isUsingA = true;
+
+    private Dictionary<string, AudioSource> continuousSources = new Dictionary<string, AudioSource>();
+
 
     private void Awake()
     {
@@ -48,11 +59,21 @@ public class SoundManager : MonoBehaviour
 
     void SetupSources()
     {
-        musicSource = CreateSource("MusicSource", musicGroup);
+        musicSourceA = CreateSource("Music_A", musicGroup);
+        musicSourceB = CreateSource("Music_B", musicGroup);
+
+        musicSourceA.loop = true;
+        musicSourceB.loop = true;
+
+        musicSourceA.volume = 0;
+        musicSourceB.volume = 0;
+
+        musicSource = musicSourceA;
         sfxSource = CreateSource("SFXSource", sfxGroup);
         uiSource = CreateSource("UISource", uiGroup);
         ambienceSource = CreateSource("AmbienceSource", ambienceGroup);
     }
+
 
     AudioSource CreateSource(string name, AudioMixerGroup group)
     {
@@ -141,5 +162,88 @@ public class SoundManager : MonoBehaviour
         SetVolume(sfxVolumeParam, GetVolume(sfxVolumeParam));
         SetVolume(uiVolumeParam, GetVolume(uiVolumeParam));
         SetVolume(ambienceVolumeParam, GetVolume(ambienceVolumeParam));
+    }
+
+    public void PlayContinuous(string id, float volume = 1f)
+    {
+        if (continuousSources.ContainsKey(id))
+        {
+            continuousSources[id].volume = volume;
+            return;
+        }
+
+        AudioSource src = CreateSource("Continuous_" + id, continuousGroup);
+        src.loop = true;
+
+        AudioEvent evt = library.Get(id);
+        if (evt == null) return;
+
+        src.clip = evt.clip;
+        src.volume = volume;
+        src.pitch = evt.GetPitch();
+        src.Play();
+
+        continuousSources[id] = src;
+    }
+
+    public void StopContinuous(string id)
+    {
+        if (!continuousSources.ContainsKey(id)) return;
+
+        AudioSource src = continuousSources[id];
+        src.Stop();
+        Destroy(src.gameObject);
+
+        continuousSources.Remove(id);
+    }
+
+    public void FadeMusic(string id, float fadeTime = 1f)
+    {
+        if (currentMusicID == id)
+            return;
+
+        AudioEvent evt = library.Get(id);
+        if (evt == null) return;
+
+        currentMusicID = id;
+
+        AudioSource newSource = isUsingA ? musicSourceB : musicSourceA;
+        AudioSource oldSource = isUsingA ? musicSourceA : musicSourceB;
+
+        isUsingA = !isUsingA;
+
+        newSource.clip = evt.clip;
+        newSource.volume = 0f;
+        newSource.pitch = evt.GetPitch();
+        newSource.loop = true;
+        newSource.Play();
+
+        StartCoroutine(FadeRoutine(oldSource, newSource, fadeTime));
+    }
+
+    private IEnumerator FadeRoutine(AudioSource oldSrc, AudioSource newSrc, float time)
+    {
+        float t = 0f;
+
+        while (t < time)
+        {
+            t += Time.unscaledDeltaTime;
+            float k = t / time;
+
+            if (oldSrc != null)
+                oldSrc.volume = Mathf.Lerp(1f, 0f, k);
+
+            newSrc.volume = Mathf.Lerp(0f, 1f, k);
+
+            yield return null;
+        }
+
+        if (oldSrc != null)
+        {
+            oldSrc.Stop();
+            oldSrc.volume = 0;
+        }
+
+        newSrc.volume = 1f;
     }
 }

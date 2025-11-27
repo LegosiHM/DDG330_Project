@@ -99,6 +99,14 @@ public class SlimeClimbMovement : MonoBehaviour
             controller.Move(moveDirection.normalized * slimeMovementSO.climbSpeed * Time.deltaTime);
         }
 
+        if (moveDirection.magnitude >= 0.1f)
+        {
+            SoundManager.Instance.PlayContinuous("slime_move", 1f);
+        }
+        else
+        {
+            SoundManager.Instance.StopContinuous("slime_move");
+        }
         //Quaternion targetRotation = Quaternion.FromToRotation(transform.up, _groundSurface) * transform.rotation;
         //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
     }

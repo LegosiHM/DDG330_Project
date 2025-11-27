@@ -18,6 +18,8 @@ public class ElevatorSlime : MonoBehaviour
     private Vector3 _originalPosition => slimeComponent.slimeOriginalPosition;
     private Vector3 _previousPosition;
 
+    private bool isLevitationPlaying = false;
+
 
     void Start()
     {
@@ -62,37 +64,46 @@ public class ElevatorSlime : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject == gameObject) //make sure to not detect itself
-        {
+        if (other.gameObject == gameObject)
             return;
-        }
-        
-        if (other.CompareTag(playerLayer)) //detect player (human and slime) that is not its parent object
+
+        if (other.CompareTag(playerLayer))
         {
-            float currentDistance =  Vector3.Distance(_originalPosition, transform.position);
+            float currentDistance = Vector3.Distance(_originalPosition, transform.position);
 
             if (_moveDelayCount <= 0)
             {
-                if(currentDistance < _maxMoveDistance)
+                if (currentDistance < _maxMoveDistance)
                 {
-                    float remainingDistance = _maxMoveDistance - currentDistance;
+                    if (!isLevitationPlaying)
+                    {
+                        SoundManager.Instance.PlayContinuous("slime_levitate", 1f);
+                        isLevitationPlaying = true;
+                    }
 
+                    float remainingDistance = _maxMoveDistance - currentDistance;
                     float moveStep = MathF.Min(_moveSpeed * Time.deltaTime, remainingDistance);
 
-                    transform.Translate(Vector3.up * moveStep, Space.Self); //make object move depend on their rotation
+                    transform.Translate(Vector3.up * moveStep, Space.Self);
 
-                    Vector3 movementDelta = transform.position - _previousPosition; //calculate movement in each frame
+                    Vector3 movementDelta = transform.position - _previousPosition;
 
                     CharacterController controller = other.GetComponent<CharacterController>();
                     if (controller != null)
                     {
-                        controller.Move(movementDelta); //move "other" by that amount of movement
-                        Debug.Log("Move");
+                        controller.Move(movementDelta);
                     }
-
+                }
+                else
+                {
+                    if (isLevitationPlaying)
+                    {
+                        SoundManager.Instance.StopContinuous("slime_levitate");
+                        isLevitationPlaying = false;
+                    }
                 }
             }
-            else //countdown to avoid some moving issue
+            else
             {
                 _moveDelayCount -= Time.deltaTime;
                 _moveDelayCount = Mathf.Clamp(_moveDelayCount, 0, _moveDelay);
@@ -101,18 +112,23 @@ public class ElevatorSlime : MonoBehaviour
 
         _previousPosition = transform.position;
     }
+
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == gameObject) //make sure to not detect itself
-        {
+        if (other.gameObject == gameObject)
             return;
-        }
 
-        if (other.CompareTag(playerLayer)) //detect player (human and slime) that is not its parent object
+        if (other.CompareTag(playerLayer))
         {
             _isInsideTrigger = false;
             _moveDelayCount = 1;
-            other.transform.SetParent(null); //set player parent to null
+            other.transform.SetParent(null);
+
+            if (isLevitationPlaying)
+            {
+                SoundManager.Instance.StopContinuous("slime_levitate");
+                isLevitationPlaying = false;
+            }
         }
     }
 

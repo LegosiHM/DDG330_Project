@@ -12,6 +12,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void Start()
     {
+        SoundManager.Instance.FadeMusic("bgm_cannon", 1f);
         creditPanel.SetActive(false);
         optionPanel.SetActive(false);
     }

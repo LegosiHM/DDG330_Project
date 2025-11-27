@@ -30,6 +30,7 @@ public class SlimeMovement : MonoBehaviour
     [SerializeField] private float externalVelocityDampening = 2f;
     private Vector3 externalVelocity;
 
+
     public void SlimeMoving()
     {
         if(!enabled) return; //if disable by other script, return (function still called, but not doing anything)
@@ -46,11 +47,16 @@ public class SlimeMovement : MonoBehaviour
         }
         */
 
-        if (Input.GetButtonDown("Jump") && _isGrounded)
+        if (Input.GetButtonDown("Jump") && _isGrounded && slimeMovementSO.jumpHeight > 0f)
         {
-            velocity.y = Mathf.Sqrt(slimeMovementSO.jumpHeight * -2 * gravity);
+            float jumpVelocity = Mathf.Sqrt(slimeMovementSO.jumpHeight * -2 * gravity);
+
+            if (jumpVelocity > 0f) // actually able to leave the ground
+            {
+                velocity.y = jumpVelocity;
+                SoundManager.Instance.PlaySFX("slime_jump");
+            }
         }
-        //gravity
         velocity.y += gravity * Time.deltaTime;
 
         externalVelocity = Vector3.Lerp(externalVelocity, Vector3.zero, externalVelocityDampening * Time.deltaTime); //fade out external velocity overtime
@@ -74,6 +80,15 @@ public class SlimeMovement : MonoBehaviour
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * _slimeMovementSO.speed * Time.deltaTime);
         }
+        
+        if (IsMoving() && _isGrounded)
+        {
+            SoundManager.Instance.PlayContinuous("slime_move", 1f);
+        }
+        else
+        {
+            SoundManager.Instance.StopContinuous("slime_move");
+        }
 
     }
 
@@ -85,5 +100,10 @@ public class SlimeMovement : MonoBehaviour
     public void ChangeSlimeMovementSO(SlimeMovementSO newSlimeMovementSO)
     {
         _slimeMovementSO = newSlimeMovementSO;
+    }
+
+    public bool IsMoving()
+    {
+        return (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0);
     }
 }

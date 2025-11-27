@@ -75,6 +75,7 @@ public class ProjectileThrow : MonoBehaviour
     */
     public void ThrowObject()
     {
+        SoundManager.Instance.PlaySFX("cannon_shoot");
         _thrownObject = Instantiate(objectToThrow, StartPosition.position, Quaternion.identity);
         _thrownObject.GetComponent<Rigidbody>().AddForce(StartPosition.forward * force, ForceMode.Impulse);
         _SlimeProjectile.RemoveAt(index);

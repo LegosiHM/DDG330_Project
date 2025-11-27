@@ -27,6 +27,7 @@ public class Projectile : MonoBehaviour
             _newSlime = Instantiate(_slimeOfThisProjectile, transform.position, transform.rotation);
             Debug.Log("Spawn Slime");
 
+            SoundManager.Instance.PlaySFX("slime_land");
 
             Destroy(gameObject);
             Debug.Log("Destroy projectile");
