@@ -23,7 +23,7 @@ public class DebugText : MonoBehaviour
 
         if (slime != null)
         {
-            _deathTimerText.text = $"{slime.slimeDeathTimeLeft}";
+            _deathTimerText.text = $"{slime.slimeDeathTimeLeft:0.00}";
             //_manualStopTimerText.text = $"Slime Manual Stop Timer: {slime.slimeManualStopTimeLeft}";
             /*_debugText.text = $"Current State: {_gameManager.currentState}" +
                               $"\nSlime Death Timer: {slime.slimeDeathTimeLeft}" +

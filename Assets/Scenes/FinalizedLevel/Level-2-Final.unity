@@ -48296,6 +48296,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2014208398}
     m_Modifications:
+    - target: {fileID: 753682800366531153, guid: f72298e66e6bdec4990c07e4b4b4d324, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 753682800366531153, guid: f72298e66e6bdec4990c07e4b4b4d324, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2422115334323952837, guid: f72298e66e6bdec4990c07e4b4b4d324, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -48379,6 +48387,14 @@ PrefabInstance:
     - target: {fileID: 4209091648124189805, guid: f72298e66e6bdec4990c07e4b4b4d324, type: 3}
       propertyPath: m_Name
       value: SlimeDisplayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906605771168763793, guid: f72298e66e6bdec4990c07e4b4b4d324, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906605771168763793, guid: f72298e66e6bdec4990c07e4b4b4d324, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -158603,12 +158619,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1468923879}
   - {fileID: 1530159071}
-  - {fileID: 1141374448}
-  - {fileID: 1972176583}
   - {fileID: 633116201}
+  - {fileID: 1972176583}
   - {fileID: 130265488}
+  - {fileID: 1141374448}
+  - {fileID: 1468923879}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -168293,7 +168309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d9c10ba2ad29b94a992b535f6d5b0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yThreshold: -2
+  yThreshold: -1
   respawnPosition: {fileID: 413778755}
 --- !u!114 &2138666213 stripped
 MonoBehaviour:

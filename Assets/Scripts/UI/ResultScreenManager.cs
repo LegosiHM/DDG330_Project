@@ -98,7 +98,10 @@ public class ResultScreenManager : MonoBehaviour
 
     private void SetupButtons()
     {
-        nextLevelButton.gameObject.SetActive(!string.IsNullOrEmpty(nextLevelSceneName));
+        if(nextLevelSceneName != null && nextLevelButton != null)
+        {
+            nextLevelButton.gameObject.SetActive(!string.IsNullOrEmpty(nextLevelSceneName));
+        }
     }
 
     public void LoadNextLevel()

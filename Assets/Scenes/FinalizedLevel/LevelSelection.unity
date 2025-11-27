@@ -479,6 +479,10 @@ PrefabInstance:
       propertyPath: levelID
       value: Level3
       objectReference: {fileID: 0}
+    - target: {fileID: 2431939988458814492, guid: 3198e11973e1bdf4ea36cbd9ead6cd6f, type: 3}
+      propertyPath: tutorialSceneName
+      value: CH3_Tutorial
+      objectReference: {fileID: 0}
     - target: {fileID: 6365162118081226388, guid: 3198e11973e1bdf4ea36cbd9ead6cd6f, type: 3}
       propertyPath: m_text
       value: 'LEVEL 3
@@ -674,6 +678,10 @@ PrefabInstance:
     - target: {fileID: 2431939988458814492, guid: 3198e11973e1bdf4ea36cbd9ead6cd6f, type: 3}
       propertyPath: levelID
       value: Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2431939988458814492, guid: 3198e11973e1bdf4ea36cbd9ead6cd6f, type: 3}
+      propertyPath: tutorialSceneName
+      value: CH2_Tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 6365162118081226388, guid: 3198e11973e1bdf4ea36cbd9ead6cd6f, type: 3}
       propertyPath: m_text
@@ -1042,6 +1050,10 @@ PrefabInstance:
       propertyPath: button
       value: 
       objectReference: {fileID: 633754578}
+    - target: {fileID: 2431939988458814492, guid: 3198e11973e1bdf4ea36cbd9ead6cd6f, type: 3}
+      propertyPath: levelID
+      value: Level1
+      objectReference: {fileID: 0}
     - target: {fileID: 2431939988458814492, guid: 3198e11973e1bdf4ea36cbd9ead6cd6f, type: 3}
       propertyPath: lockIcon
       value: 
