@@ -69844,11 +69844,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6771685745574226836, guid: acbca96f93a8e4c49990d42e75ac1923, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -2.7553773e-10
       objectReference: {fileID: 0}
     - target: {fileID: 6771685745574226836, guid: acbca96f93a8e4c49990d42e75ac1923, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 4.9913216e-11
       objectReference: {fileID: 0}
     - target: {fileID: 7575944241821400178, guid: acbca96f93a8e4c49990d42e75ac1923, type: 3}
       propertyPath: near clip plane
