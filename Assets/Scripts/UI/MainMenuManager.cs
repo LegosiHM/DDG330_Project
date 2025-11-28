@@ -17,6 +17,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         SoundManager.Instance.FadeMusic("bgm_cannon", 1f);
         float saved = SoundManager.Instance.GetVolume("MasterVolume");
         musicSlider.value = saved;

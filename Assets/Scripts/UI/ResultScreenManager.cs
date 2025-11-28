@@ -134,8 +134,8 @@ public class ResultScreenManager : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         SceneManager.LoadScene("MainMenu");
     }
