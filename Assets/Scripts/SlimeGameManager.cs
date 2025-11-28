@@ -41,11 +41,16 @@ public class SlimeGameManager : MonoBehaviour
 
     private void Start()
     {
+        PauseMenu.IsPaused = false;
+        PauseMenu.BlockNextShot = false;
+
         _cannonPredictor = _cannon.gameObject.GetComponent<TrajectoryPredictor>();
         _cannonLook = _cannon.gameObject.GetComponent<MouseLook>();
         _cannonFreeLook = _cannonCamera.GetComponent<FreeLookCamera>();
+
         SetState(new ShootingState(this));
     }
+
 
     private void Update()
     {

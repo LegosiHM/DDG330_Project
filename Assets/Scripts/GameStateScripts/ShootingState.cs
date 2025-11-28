@@ -38,6 +38,16 @@ public class ShootingState : GameState
     {
         if (PauseMenu.IsPaused)
             return;
+
+        if (PauseMenu.BlockNextShot)
+        {
+            if (!Input.GetMouseButton(0))    
+            {
+                PauseMenu.BlockNextShot = false;
+            }
+            return;
+        }
+
         bool rmbHeld = Input.GetMouseButton(1);      
         bool lmbReleased = Input.GetMouseButtonUp(0); 
 

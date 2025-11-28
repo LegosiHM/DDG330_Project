@@ -44,6 +44,9 @@ public class MouseLook : MonoBehaviour
 
     public void CannonRotate()
     {
+        if (PauseMenu.IsPaused)
+            return;
+
         if (lockCursor)
             Cursor.lockState = CursorLockMode.Locked;
 

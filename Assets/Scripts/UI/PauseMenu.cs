@@ -18,8 +18,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private string mainMenuSceneName;
     [SerializeField] private string LevelSceneName;
 
-    private bool isPaused = false;
     public static bool IsPaused = false;
+    public static bool BlockNextShot = false;
 
     void Start()
     {
@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (isPaused) ResumeGame();
+            if (IsPaused) ResumeGame();
             else PauseGame();
         }
     }
@@ -60,7 +60,9 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
 
         IsPaused = false;
+        BlockNextShot = true; 
     }
+
 
     public void ReplayGame()
     {
