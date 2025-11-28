@@ -902,6 +902,10 @@ PrefabInstance:
       propertyPath: levelID
       value: Level4
       objectReference: {fileID: 0}
+    - target: {fileID: 2431939988458814492, guid: 3198e11973e1bdf4ea36cbd9ead6cd6f, type: 3}
+      propertyPath: tutorialSceneName
+      value: Level-4-Final
+      objectReference: {fileID: 0}
     - target: {fileID: 6365162118081226388, guid: 3198e11973e1bdf4ea36cbd9ead6cd6f, type: 3}
       propertyPath: m_text
       value: 'LEVEL 4

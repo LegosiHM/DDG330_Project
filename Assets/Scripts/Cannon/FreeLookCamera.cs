@@ -18,6 +18,9 @@ public class FreeLookCamera : MonoBehaviour
 
     public void FreeLook()
     {
+        if (PauseMenu.IsPaused)
+            return;
+
         if (Mouse.current != null)
         {
             Vector2 delta = Mouse.current.delta.ReadValue();

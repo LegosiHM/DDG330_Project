@@ -19,6 +19,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private string LevelSceneName;
 
     private bool isPaused = false;
+    public static bool IsPaused = false;
 
     void Start()
     {
@@ -41,24 +42,24 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0;
         pausePanel.SetActive(true);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        isPaused = true;
+        IsPaused = true;
     }
 
     public void ResumeGame()
     {
         pausePanel.SetActive(false);
-        Time.timeScale = 1f;
+        Time.timeScale = 1;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
-        isPaused = false;
+        IsPaused = false;
     }
 
     public void ReplayGame()

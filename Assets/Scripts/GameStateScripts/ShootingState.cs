@@ -36,6 +36,8 @@ public class ShootingState : GameState
 
     public override void OnUpdate()
     {
+        if (PauseMenu.IsPaused)
+            return;
         bool rmbHeld = Input.GetMouseButton(1);      
         bool lmbReleased = Input.GetMouseButtonUp(0); 
 
