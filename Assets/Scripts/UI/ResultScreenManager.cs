@@ -112,9 +112,17 @@ public class ResultScreenManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        if (_levelName == "Level-1-Final") FBPP.SetInt("Level2_Unlocked", 1);
+        if (_levelName == "Level-2-Final") FBPP.SetInt("Level3_Unlocked", 1);
+        if (_levelName == "Level-3-Final") FBPP.SetInt("Level4_Unlocked", 1);
+
+        FBPP.Save();
+
         if (!string.IsNullOrEmpty(nextLevelSceneName))
             SceneManager.LoadScene(nextLevelSceneName);
     }
+
+
 
     public void RetryLevel()
     {
@@ -134,16 +142,10 @@ public class ResultScreenManager : MonoBehaviour
 
     private void UnlockNextLevel()
     {
-        string nextLevelID = "";
+        if (_levelName == "Level-1-Final") FBPP.SetInt("Level2_Unlocked", 1);
+        if (_levelName == "Level-2-Final") FBPP.SetInt("Level3_Unlocked", 1);
+        if (_levelName == "Level-3-Final") FBPP.SetInt("Level4_Unlocked", 1);
 
-        if (_levelName == "Level1") nextLevelID = "Level2";
-        if (_levelName == "Level2") nextLevelID = "Level3";
-        if (_levelName == "Level3") nextLevelID = "Level4";
-
-        if (nextLevelID != "")
-        {
-            FBPP.SetInt(nextLevelID + "_Unlocked", 1);
-            FBPP.Save();
-        }
+        FBPP.Save();
     }
 }

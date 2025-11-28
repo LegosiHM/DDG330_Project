@@ -8,8 +8,6 @@ public class SaveData : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     private static void AutoCreate()
     {
-        _instance = FindObjectOfType<SaveData>();
-
         if (_instance == null)
         {
             GameObject obj = new GameObject("SaveData");
@@ -19,19 +17,18 @@ public class SaveData : MonoBehaviour
         DontDestroyOnLoad(_instance.gameObject);
     }
 
-
     private void Awake()
     {
+
         if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
             return;
         }
-
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
-        if (_initialized == false)
+        if (!_initialized)
         {
             var config = new FBPPConfig()
             {
@@ -43,9 +40,10 @@ public class SaveData : MonoBehaviour
 
             FBPP.Start(config);
             _initialized = true;
+
+            Debug.Log("FBPP Initialized | Save Path = " + Application.persistentDataPath);
         }
     }
-
 
     private void Update()
     {
@@ -57,7 +55,7 @@ public class SaveData : MonoBehaviour
             PlayerPrefs.DeleteAll();
             PlayerPrefs.Save();
 
-            Debug.Log("ALL SAVE DATA DELETED (FBPP + PlayerPrefs)");
+            Debug.Log("🔥 ALL SAVE DATA DELETED (FBPP + PlayerPrefs)");
         }
     }
 }

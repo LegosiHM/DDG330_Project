@@ -85361,7 +85361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starText: {fileID: 727982046}
-  levelName: Level 2
+  levelName: Level2
   totalStars: 3
 --- !u!4 &1158662214
 Transform:
