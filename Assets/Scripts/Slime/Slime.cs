@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class Slime : MonoBehaviour
 {
     [Header("Slime Display Icon")]
-    [SerializeField] private GameObject _slimeIcon;
-    public GameObject slimeIcon => _slimeIcon;
+    [SerializeField] private Sprite _thisSlimeIcon;
+    public Sprite thisSlimeIcon => _thisSlimeIcon;
 
     [Header("Slime Lifespan")]
     [SerializeField] private float _slimeDeathMaxTimer = 5f;
@@ -34,9 +34,15 @@ public class Slime : MonoBehaviour
     private bool _isDead = false;
     public bool isDead => _isDead;
 
-    
+    private void Awake()
+    {
+
+      //  thisSlimeIcon = slimeIcon.GetComponent<Image>().sprite;
+    }
+
     void Start()
     {
+
         //normalScale = transform.localScale;
         _slimeDeathTimeLeft = _slimeDeathMaxTimer;
         _slimeManualStopTimeLeft = _slimeManualStopTimer;

@@ -11,9 +11,14 @@ public class PortalSlime : MonoBehaviour
     [SerializeField] private Transform portalObject;
     [SerializeField] private Transform playerObject;
 
-    private Slime slimeComponent => GetComponent<Slime>();
-    private SlimeMovement slimeMovement => GetComponent<SlimeMovement>();
+    private Slime slimeComponent;
+    private SlimeMovement slimeMovement;
 
+    private void Awake()
+    {
+        slimeComponent = GetComponent<Slime>();
+        slimeMovement = GetComponent<SlimeMovement>();
+    }
 
     void Update()
     {

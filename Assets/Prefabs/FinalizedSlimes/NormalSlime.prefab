@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slimeIcon: {fileID: 7894678862117321075, guid: b20ffb837d8616d429671ea2be9020e9, type: 3}
+  _thisSlimeIcon: {fileID: 21300000, guid: 002f6589959159f4697ff58f6b5d647e, type: 3}
   _slimeDeathMaxTimer: 10
   _slimeDeathTimeLeft: 0
   _slimeManualStopTimer: 3
