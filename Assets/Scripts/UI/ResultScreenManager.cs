@@ -24,6 +24,7 @@ public class ResultScreenManager : MonoBehaviour
     public Button nextLevelButton;
     public Button retryButton;
     public Button mainMenuButton;
+    
 
     [Header("Scene Navigation")]
     public string nextLevelSceneName;
@@ -95,6 +96,8 @@ public class ResultScreenManager : MonoBehaviour
             bestTimeText.text = "Best: " + best.ToString("F2") + " sec";
         }
     }
+
+
 
     private void SetupButtons()
     {

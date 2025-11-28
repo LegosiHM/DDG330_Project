@@ -83783,6 +83783,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3776561599730616754, guid: 8d3a49d7a3fd86d4db7d325dd0ed5eec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1590846249}
+    - target: {fileID: 3776561599730616754, guid: 8d3a49d7a3fd86d4db7d325dd0ed5eec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SelectLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 4117948113677847221, guid: 8d3a49d7a3fd86d4db7d325dd0ed5eec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -83790,6 +83798,14 @@ PrefabInstance:
     - target: {fileID: 4117948113677847221, guid: 8d3a49d7a3fd86d4db7d325dd0ed5eec, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResumeGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5125747847896029596, guid: 8d3a49d7a3fd86d4db7d325dd0ed5eec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1590846249}
+    - target: {fileID: 5125747847896029596, guid: 8d3a49d7a3fd86d4db7d325dd0ed5eec, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 5536254750601303815, guid: 8d3a49d7a3fd86d4db7d325dd0ed5eec, type: 3}
       propertyPath: m_AnchorMax.x
@@ -123145,6 +123161,14 @@ PrefabInstance:
       propertyPath: musicSlider
       value: 
       objectReference: {fileID: 1141374447}
+    - target: {fileID: 5314632074404354527, guid: 9f5fcca6281f9004c92683736ba2d50f, type: 3}
+      propertyPath: LevelSceneName
+      value: LevelSelection
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314632074404354527, guid: 9f5fcca6281f9004c92683736ba2d50f, type: 3}
+      propertyPath: mainMenuSceneName
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 7395924003363207994, guid: 9f5fcca6281f9004c92683736ba2d50f, type: 3}
       propertyPath: m_Name
       value: PauseMenager
@@ -158619,8 +158643,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1530159071}
   - {fileID: 633116201}
+  - {fileID: 1530159071}
   - {fileID: 1972176583}
   - {fileID: 130265488}
   - {fileID: 1141374448}

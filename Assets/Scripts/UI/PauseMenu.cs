@@ -14,6 +14,10 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] private Slider musicSlider;
 
+    [Header("Scene Settings")]
+    [SerializeField] private string mainMenuSceneName;
+    [SerializeField] private string LevelSceneName;
+
     private bool isPaused = false;
 
     void Start()
@@ -27,7 +31,7 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-      
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             if (isPaused) ResumeGame();
@@ -37,8 +41,9 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
+        Time.timeScale = 0f;
         pausePanel.SetActive(true);
-        Time.timeScale = 0f;  
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -48,7 +53,8 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         pausePanel.SetActive(false);
-        Time.timeScale = 1f;       
+        Time.timeScale = 1f;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
@@ -69,5 +75,17 @@ public class PauseMenu : MonoBehaviour
             volume = 0.0001f;
 
         myMixer.SetFloat("MasterVolume", Mathf.Log10(volume) * 20);
+    }
+
+    public void LoadMainMenu()
+    {
+        Time.timeScale = 1f; 
+        SceneManager.LoadScene(mainMenuSceneName);
+    }
+
+    public void SelectLevel()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(LevelSceneName);
     }
 }
