@@ -47,15 +47,18 @@ public class SaveData : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            FBPP.DeleteAll();
-            FBPP.Save();
+    #if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                FBPP.DeleteAll();
+                FBPP.Save();
 
-            PlayerPrefs.DeleteAll();
-            PlayerPrefs.Save();
+                PlayerPrefs.DeleteAll();
+                PlayerPrefs.Save();
 
-            Debug.Log("🔥 ALL SAVE DATA DELETED (FBPP + PlayerPrefs)");
-        }
+                Debug.Log("ALL SAVE DATA DELETED (FBPP + PlayerPrefs)");
+            }
+    #endif
     }
+
 }

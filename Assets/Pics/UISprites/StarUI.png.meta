@@ -45,7 +45,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -100,13 +100,13 @@ TextureImporter:
       name: StarUI_0
       rect:
         serializedVersion: 2
-        x: 171
-        y: 306
-        width: 1600
-        height: 553
+        x: 176
+        y: 310
+        width: 1590
+        height: 545
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 56, y: 53, z: 53, w: 56}
       outline: []
       physicsShape: []
       tessellationDetail: 0

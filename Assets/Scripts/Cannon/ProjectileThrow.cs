@@ -8,8 +8,11 @@ public class ProjectileThrow : MonoBehaviour
 {
     [Header("Slime Displayer")]
     [SerializeField] private GameObject _previousSlimeIcon;
+    private Image previousSlimeIconComponent;
     [SerializeField] private GameObject _currentSlimeIcon;
+    private Image currentSlimeIconComponent;
     [SerializeField] private GameObject _nextSlimeIcon;
+    private Image nextSlimeIconComponent;
 
     [Header("Cannon Info")]
     TrajectoryPredictor trajectoryPredictor;
@@ -34,6 +37,13 @@ public class ProjectileThrow : MonoBehaviour
     public InputAction fire;
 
     private int index = 0;
+
+    private void Awake()
+    {
+        previousSlimeIconComponent = _previousSlimeIcon.GetComponent<Image>();
+        currentSlimeIconComponent = _currentSlimeIcon.GetComponent<Image>();
+        nextSlimeIconComponent = _nextSlimeIcon.GetComponent<Image>();
+    }
 
     void OnEnable()
     {
@@ -119,30 +129,30 @@ public class ProjectileThrow : MonoBehaviour
 
     public void DisplaySlime()
     {
-        _currentSlimeIcon.GetComponent<Image>().sprite = _SlimeProjectile[index].slimeOfThisProjectile.slimeIcon.GetComponent<Image>().sprite;
+        currentSlimeIconComponent.sprite = _SlimeProjectile[index].slimeOfThisProjectile.thisSlimeIcon;
 
 
         if (index - 1 >= 0) //check if there is previous slime
         {
-            _previousSlimeIcon.GetComponent<Image>().enabled = true;
-            _previousSlimeIcon.GetComponent<Image>().sprite = _SlimeProjectile[index - 1].slimeOfThisProjectile.slimeIcon.GetComponent<Image>().sprite;
+            previousSlimeIconComponent.enabled = true;
+            previousSlimeIconComponent.sprite = _SlimeProjectile[index - 1].slimeOfThisProjectile.thisSlimeIcon;
         }
         else
         {
             //_previousSlimeIcon.GetComponent<Image>().sprite = null;
 
-            _previousSlimeIcon.GetComponent<Image>().enabled = false;
+            previousSlimeIconComponent.enabled = false;
         }
 
         if (index + 1 <= _SlimeProjectile.Count - 1) //check if there is next slime
         {
-            _nextSlimeIcon.GetComponent<Image>().enabled = true;
-            _nextSlimeIcon.GetComponent<Image>().sprite = _SlimeProjectile[index + 1].slimeOfThisProjectile.slimeIcon.GetComponent<Image>().sprite;
+            nextSlimeIconComponent.enabled = true;
+            nextSlimeIconComponent.sprite = _SlimeProjectile[index + 1].slimeOfThisProjectile.thisSlimeIcon;
         }
         else
         {
             //_nextSlimeIcon.GetComponent<Image>().sprite = null;
-            _nextSlimeIcon.GetComponent<Image>().enabled = false;
+            nextSlimeIconComponent.enabled = false;
         }
 
         //Debug.Log(_currentSlimeIcon.name);

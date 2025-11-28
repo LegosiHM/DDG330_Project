@@ -90,4 +90,17 @@ public class MouseLook : MonoBehaviour
             transform.localRotation *= yRotation;
         }
     }
+    private void OnDisable()
+    {
+        if (input != null)
+            input.Disable();     
+    }
+
+    private void OnDestroy()
+    {
+        if (input != null)
+            input.Dispose();    
+        input = null;
+    }
+
 }
